@@ -1,0 +1,27 @@
+<html>
+<head>
+<title> login form </title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<form name="f1" class="box1">
+      <h1>Login</h1>
+      <input type="text" placeholder="Enter Username" name="t1" />
+      <input type="password" placeholder="Enter Password" name="t2" />
+      <input type="submit" name="b1" value="Login" onclick="check()" />
+	  
+    </form>
+    <script lang="javascript">
+         function check(){
+
+        if(document.f1.t1.value=="niharika" && document.f1.t2.value=="1227"){
+          alert("Login Successful !!");
+        }
+        else{
+          alert("Login Unsuccessful !!");
+        }
+      }
+    </script>    
+</body>
+</html>

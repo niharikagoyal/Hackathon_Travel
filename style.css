@@ -1,0 +1,59 @@
+body {
+  background:url("4.webp");
+}
+
+.box1 {
+  width: 300px;
+  padding: 15px 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("4.webp");
+  background-size: auto;
+  text-align: center;
+  border: ridge 5px crimson;
+}
+.box1 h1 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.box1 input[type="text"],
+.box1 input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 18px auto;
+  text-align: center;
+  border: 3px solid blue;
+  padding: 14px 10px;
+  width: 220px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25px;
+}
+.box1 input[type="text"]:focus,
+.box1 input[type="password"]:focus {
+  width: 270px;
+  border-color:crimson;
+}
+.box1 input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 3px solid crimson;
+  padding: 14px 50px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25px;
+  cursor: pointer;
+  background-color: crimson;
+}
+.box1 input[type="submit"]:hover {
+  width: 75%;
+}

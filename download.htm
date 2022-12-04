@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]},distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:"1385880850",accountID:"3318845",trustKey:"66686",xpid:"VwUGWV5XDRABVlRSBAgPU1EE",licenseKey:"NRJS-7b82eb47d05ddffd6c6",applicationID:"1250398555"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(31),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(32),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError";if(!c.disabled){var l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(14),t(13),"addEventListener"in window&&t(7),c.xhrWrappable&&t(15),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})}},{}],3:[function(t,e,n){var r=t("loader");r.disabled||(r.features.ins=!0)},{}],4:[function(t,e,n){function r(){U++,L=g.hash,this[u]=y.now()}function o(){U--,g.hash!==L&&i(0,!0);var t=y.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+g,e])}function a(t,e){t.on(e,function(){this[e]=y.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,g=w.location,y=t("loader");if(w[v]&&y.xhrWrappable&&!y.disabled){var x=t(11),b=t(12),E=t(9),R=t(7),O=t(14),T=t(8),S=t(15),P=t(10),M=t("ee"),C=M.get("tracer"),N=t(23);t(17),y.features.spa=!0;var L,U=0;M.on(u,r),b.on(p,r),P.on(p,r),M.on(d,o),b.on(l,o),P.on(l,o),M.buffer([u,d,"xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),S.buffer([u,"new-xhr","send-xhr"+s]),T.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),x.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),C.buffer([u,"no-"+u]),P.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,m+s),a(T,m+"-done"),a(P,"new-jsonp"),a(P,"jsonp-end"),a(P,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,N(!0)),w[v]("load",i,N(!0)),w[v]("popstate",function(){i(0,U>1)},N(!0))}},{}],5:[function(t,e,n){function r(){var t=new PerformanceObserver(function(t,e){var n=t.getEntries();s(v,[n])});try{t.observe({entryTypes:["resource"]})}catch(e){}}function o(t){if(s(v,[window.performance.getEntriesByType(w)]),window.performance["c"+p])try{window.performance[h](m,o,!1)}catch(t){}else try{window.performance[h]("webkit"+m,o,!1)}catch(t){}}function i(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var a=t("ee"),s=t("handle"),c=t(14),f=t(13),u=t(6),d=t(23),p="learResourceTimings",l="addEventListener",h="removeEventListener",m="resourcetimingbufferfull",v="bstResource",w="resource",g="-start",y="-end",x="fn"+g,b="fn"+y,E="bstTimer",R="pushState",O=t("loader");if(!O.disabled){O.features.stn=!0,t(9),"addEventListener"in window&&t(7);var T=NREUM.o.EV;a.on(x,function(t,e){var n=t[0];n instanceof T&&(this.bstStart=O.now())}),a.on(b,function(t,e){var n=t[0];n instanceof T&&s("bst",[n,e,this.bstStart,O.now()])}),c.on(x,function(t,e,n){this.bstStart=O.now(),this.bstType=n}),c.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),this.bstType])}),f.on(x,function(){this.bstStart=O.now()}),f.on(b,function(t,e){s(E,[e,this.bstStart,O.now(),"requestAnimationFrame"])}),a.on(R+g,function(t){this.time=O.now(),this.startPath=location.pathname+location.hash}),a.on(R+y,function(t){s("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),u()?(s(v,[window.performance.getEntriesByType("resource")]),r()):l in window.performance&&(window.performance["c"+p]?window.performance[l](m,o,d(!1)):window.performance[l]("webkit"+m,o,d(!1))),document[l]("scroll",i,d(!1)),document[l]("keypress",i,d(!1)),document[l]("click",i,d(!1))}}},{}],6:[function(t,e,n){e.exports=function(){return"PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver}},{}],7:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1];if(null!==n&&("function"==typeof n||"object"==typeof n)){var r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],8:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=i(arguments),e={};o.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var s=r.apply(this,t);return o.emit(n+"start",[t,a],s),s.then(function(t){return o.emit(n+"end",[null,t],s),t},function(t){throw o.emit(n+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(32),a=t(31);e.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,p=s.Response,l=s.fetch,h="prototype",m="nr@context";d&&p&&l&&(a(u,function(t,e){r(d[h],e,f),r(p[h],e,f)}),r(s,"fetch",c),o.on(c+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(c+"done",[null,e],n)}else o.emit(c+"done",[t],n)}))},{}],9:[function(t,e,n){var r=t("ee").get("history"),o=t("wrap-function")(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],10:[function(t,e,n){function r(t){function e(){f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}function n(){f.emit("jsonp-error",[],l),f.emit("jsonp-end",[],l),t.removeEventListener("load",e,c(!1)),t.removeEventListener("error",n,c(!1))}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var d=s(a),p="function"==typeof d.parent[d.key];if(p){var l={};u.inPlace(d.parent,[d.key],"cb-",l),t.addEventListener("load",e,c(!1)),t.addEventListener("error",n,c(!1)),f.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(d);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(p);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t(23),f=t("ee").get("jsonp"),u=t("wrap-function")(f);if(e.exports=f,o()){var d=/[?&](?:callback|cb)=([^&#]+)/,p=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?u.inPlace(Node.prototype,h,"dom-"):(u.inPlace(HTMLElement.prototype,h,"dom-"),u.inPlace(HTMLHeadElement.prototype,h,"dom-"),u.inPlace(HTMLBodyElement.prototype,h,"dom-")),f.on("dom-start",function(t){r(t[0])})}},{}],11:[function(t,e,n){var r=t("ee").get("mutation"),o=t("wrap-function")(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],12:[function(t,e,n){function r(t){var e=i.context(),n=s(t,"executor-",e,null,!1),r=new f(n);return i.context(r).getCtx=function(){return e},r}var o=t("wrap-function"),i=t("ee").get("promise"),a=t("ee").getOrSetContext,s=o(i),c=t(31),f=NREUM.o.PR;e.exports=i,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){i.emit("propagate",[null,!o],a,!1,!1),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var a=e.apply(f,arguments),s=f.resolve(a);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&i.emit("propagate",[t,!0],n,!1,!1),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),o.wrapInPlace(f.prototype,"then",function(t){return function(){var e=this,n=o.argsToArray.apply(this,arguments),r=a(e);r.promise=e,n[0]=s(n[0],"cb-",r,null,!1),n[1]=s(n[1],"cb-",r,null,!1);var c=t.apply(this,n);return r.nextPromise=c,i.emit("propagate",[e,!0],c,!1,!1),c}}),i.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this,null,!1),t[1]=s(t[1],"resolve-",this,null,!1)}),i.on("executor-err",function(t,e,n){t[1](n)}),i.on("cb-end",function(t,e,n){i.emit("propagate",[n,!0],this.nextPromise,!1,!1)}),i.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=i.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],13:[function(t,e,n){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],14:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],15:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),m&&(E?E.then(a):w?w(a):(R=-R,O.data=R))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(7);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),p=t(23),l=NREUM.o,h=l.XHR,m=l.MO,v=l.PR,w=l.SI,g="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var b=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(g,o,p(!1))}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(h,b),b.prototype=h.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),m){var E=v&&v.resolve();if(!w&&!v){var R=1,O=document.createTextNode(R);new m(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===g||a()})},{}],16:[function(t,e,n){function r(t){if(!s(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=l.generateSpanId(),m=l.generateTraceId(),v=Date.now(),w={spanId:h,traceId:m,timestamp:v};return(t.sameOrigin||c(t)&&p())&&(w.traceContextParentHeader=o(h,m),w.traceContextStateHeader=i(h,v,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&c(t)&&d())&&(w.newrelicHeader=a(h,m,v,n,r,f)),w}function o(t,e){return"00-"+e+"-"+t+"-01"}function i(t,e,n,r,o){var i=0,a="",s=1,c="",f="";return o+"@nr="+i+"-"+s+"-"+n+"-"+r+"-"+t+"-"+a+"-"+c+"-"+f+"-"+e}function a(t,e,n,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:e,ti:n}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function s(t){return f()&&c(t)}function c(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var o=h(n.allowed_origins[r]);if(t.hostname===o.hostname&&t.protocol===o.protocol&&t.port===o.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function p(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var l=t(28),h=t(18);e.exports={generateTracePayload:r,shouldGenerateTrace:s}},{}],17:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(d[r],this.listener,!1);return e.protocol&&"data"===e.protocol?void g("Ajax/DataUrl/Excluded"):void(e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):i(this,t),n.cbTime=this.cbTime,s("xhr",[e,n,this.startTime,this.endTime,"xhr"],this)))}}function o(t,e){var n=c(e),r=t.params;r.hostname=n.hostname,r.port=n.port,r.protocol=n.protocol,r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=n,t.sameOrigin=n.sameOrigin}function i(t,e){t.params.status=e.status;var n=v(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable&&!a.disabled){var s=t("handle"),c=t(18),f=t(16).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],p=d.length,l=t("id"),h=t(24),m=t(22),v=t(19),w=t(23),g=t(25).recordSupportability,y=NREUM.o.REQ,x=window.XMLHttpRequest;a.features.xhr=!0,t(15),t(8),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,e.params=this.params||{},e.metrics=this.metrics||{},t.addEventListener("load",function(n){i(e,t)},w(!1)),h&&(h>34||h<10)||t.addEventListener("progress",function(t){e.lastSize=t.loaded},w(!1))}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=m(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;s<p;s++)e.addEventListener(d[s],this.listener,w(!1))}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("xhr-resolved",function(){this.endTime=a.now()}),u.on("addEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof x&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof x&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var o=f(this.parsedOrigin);if(o&&(o.newrelicHeader||o.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var i={};for(var a in r)i[a]=r[a];i.headers=new Headers(r.headers||{}),e(i.headers,o)&&(this.dt=o),t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&e(t[0].headers,o)&&(this.dt=o)}),u.on("fetch-start",function(t,e){this.params={},this.metrics={},this.startTime=a.now(),this.dt=e,t.length>=1&&(this.target=t[0]),t.length>=2&&(this.opts=t[1]);var n,r=this.opts||{},i=this.target;if("string"==typeof i?n=i:"object"==typeof i&&i instanceof y?n=i.url:window.URL&&"object"==typeof i&&i instanceof URL&&(n=i.href),o(this,n),"data"!==this.params.protocol){var s=(""+(i&&i instanceof y&&i.method||r.method||"GET")).toUpperCase();this.params.method=s,this.txSize=m(r.body)||0}}),u.on("fetch-done",function(t,e){if(this.endTime=a.now(),this.params||(this.params={}),"data"===this.params.protocol)return void g("Ajax/DataUrl/Excluded");this.params.status=e?e.status:0;var n;"string"==typeof this.rxSize&&this.rxSize.length>0&&(n=+this.rxSize);var r={txSize:this.txSize,rxSize:n,duration:a.now()-this.startTime};s("xhr",[this.params,r,this.startTime,this.endTime,"fetch"],this)})}},{}],18:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];if(0===(t||"").indexOf("data:"))return{protocol:"data"};var e=document.createElement("a"),n=window.location,o={};e.href=t,o.port=e.port;var i=e.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=e.hostname||n.hostname,o.pathname=e.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,s=e.hostname===document.domain&&e.port===n.port;return o.sameOrigin=a&&(!e.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],19:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?o(t.response):"text"===n||""===n||void 0===n?o(t.responseText):void 0}var o=t(22);e.exports=r},{}],20:[function(t,e,n){function r(){}function o(t,e,n,r){return function(){return u.recordSupportability("API/"+e+"/called"),i(t+e,[f.now()].concat(s(arguments)),n?null:this,r),n?void 0:this}}var i=t("handle"),a=t(31),s=t(32),c=t("ee").get("tracer"),f=t("loader"),u=t(25),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",h=l+"ixn-";a(p,function(t,e){d[e]=o(l,e,!0,"api")}),d.addPageAction=o(l,"addPageAction",!0),d.setCurrentRouteName=o(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=o(h,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),u.recordSupportability("API/noticeError/called"),i("err",[t,f.now(),!1,e])}},{}],21:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],22:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],23:[function(t,e,n){var r=!1;try{var o=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,o),window.removeEventListener("testPassive",null,o)}catch(i){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],24:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],25:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return i("storeMetric",n,null,"api"),n}function o(t,e){var n=[s,t,{name:t},e];return i("storeEventMetrics",n,null,"api"),n}var i=t("handle"),a="sm",s="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:s},recordSupportability:r,recordCustom:o}},{}],26:[function(t,e,n){function r(){return s.exists&&performance.now?Math.round(performance.now()):(i=Math.max((new Date).getTime(),i))-a}function o(){return i}var i=(new Date).getTime(),a=i,s=t(33);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=o},{}],27:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function o(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(f&&f<r.startTime)return;var o=[r],i=a({});i&&o.push(i),l("lcp",o)}}function i(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function s(t){if(t instanceof w&&!y){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=h.now()?n.fid=h.now()-e:e>h.offset&&e<=Date.now()?(e-=h.offset,n.fid=h.now()-e):e=h.now(),y=!0,l("timing",["fi",e,n])}}function c(t){"hidden"===t&&(f=h.now(),l("pageHide",[f]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,d,p,l=t("handle"),h=t("loader"),m=t(30),v=t(23),w=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){u=new PerformanceObserver(r);try{u.observe({entryTypes:["paint"]})}catch(g){}d=new PerformanceObserver(o);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(g){}p=new PerformanceObserver(i);try{p.observe({type:"layout-shift",buffered:!0})}catch(g){}}if("addEventListener"in document){var y=!1,x=["click","keydown","mousedown","pointerdown","touchstart"];x.forEach(function(t){document.addEventListener(t,s,v(!1))})}m(c)}},{}],28:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){return a(16)}function i(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,o=window.crypto||window.msCrypto;o&&o.getRandomValues&&Uint8Array&&(n=o.getRandomValues(new Uint8Array(t)));for(var i=[],a=0;a<t;a++)i.push(e().toString(16));return i.join("")}e.exports={generateUuid:r,generateSpanId:o,generateTraceId:i}},{}],29:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],30:[function(t,e,n){function r(t){function e(){t(s&&document[s]?document[s]:document[i]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,o(!1))}var o=t(23);e.exports=r;var i,a,s;"undefined"!=typeof document.hidden?(i="hidden",a="visibilitychange",s="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",a="webkitvisibilitychange",s="webkitVisibilityState")},{}],31:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],32:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],33:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?f(t,c,a):a()}function n(n,r,o,i,a){if(a!==!1&&(a=!0),!l.aborted||i){t&&a&&t(n,r,o);for(var s=e(o),c=m(n),f=c.length,u=0;u<f;u++)c[u].apply(s,r);var p=d[y[n]];return p&&p.push([x,n,r,s]),s}}function i(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function v(t){return p[t]=p[t]||o(n)}function w(t,e){l.aborted||u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:i,addEventListener:i,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:s,aborted:!1};return x}function i(t){return f(t,c,a)}function a(){return new r}function s(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var c="nr@context",f=t("gos"),u=t(31),d={},p={},l=e.exports=o();e.exports.getOrSetContext=i,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!T++){var t=O.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();c(E,function(e,n){t[e]||(t[e]=n)});var n=a();s("mark",["onload",n+O.offset],null,"api"),s("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function o(){"complete"===m.readyState&&i()}function i(){s("mark",["domContent",a()+O.offset],null,"api")}var a=t(26),s=t("handle"),c=t(31),f=t("ee"),u=t(29),d=t(21),p=t(23),l=d.getConfiguration("ssl")===!1?"http":"https",h=window,m=h.document,v="addEventListener",w="attachEvent",g=h.XMLHttpRequest,y=g&&g.prototype,x=!1;NREUM.o={ST:setTimeout,SI:h.setImmediate,CT:clearTimeout,XHR:g,REQ:h.Request,EV:h.Event,PR:h.Promise,MO:h.MutationObserver};var b=""+location,E={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1216.min.js"},R=g&&y&&y[v]&&!/CriOS/.test(navigator.userAgent),O=e.exports={offset:a.getLastTimestamp(),now:a,origin:b,features:{},xhrWrappable:R,userAgent:u,disabled:x};if(!x){t(20),t(27),m[v]?(m[v]("DOMContentLoaded",i,p(!1)),h[v]("load",r,p(!1))):(m[w]("onreadystatechange",o),h[w]("onload",r)),s("mark",["firstbyte",a.getLastTimestamp()],null,"api");var T=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,c,f){function nrWrapper(){var i,a,u,p;try{a=this,i=d(arguments),u="function"==typeof r?r(i,a):r||{}}catch(l){o([l,"",[i,a,c],u],t)}s(n+"start",[i,a,c],u,f);try{return p=e.apply(a,i)}catch(h){throw s(n+"err",[i,a,h],u,f),h}finally{s(n+"end",[i,a,p],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,i(e,nrWrapper,t),nrWrapper)}function r(t,e,r,o,i){r||(r="");var s,c,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)c=e[f],s=t[c],a(s)||(t[c]=n(s,u?c+r:r,o,c,i))}function s(n,r,i,a){if(!h||e){var s=h;h=!0;try{t.emit(n,r,i,e,a)}catch(c){o([c,n,r,i],t)}h=s}}return t||(t=u),n.inPlace=r,n.flag=p,n}function o(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function i(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(i){o([i],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function s(t,e){var n=e(t);return n[p]=t,i(t,n,u),n}function c(t,e,n){var r=t[e];t[e]=s(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(32),p="nr@original",l=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=s,e.exports.wrapInPlace=c,e.exports.argsToArray=f},{}]},{},["loader",2,17,5,3,4]);</script>    
+    <!-- Permutive SG Polls start --><script>!function(n,e,o,r,i){if(!e){e=e||{},window.permutive=e,e.q=[],e.config=i||{},e.config.projectId=o,e.config.apiKey=r,e.config.environment=e.config.environment||"production";for(var t=["addon","identify","track","trigger","query","segment","segments","ready","on","once","user","consent"],c=0;c<t.length;c++){var f=t[c];e[f]=function(n){return function(){var o=Array.prototype.slice.call(arguments,0);e.q.push({functionName:n,arguments:o})}}(f)}}}(document,window.permutive,"e82dc6a7-79a5-49b7-b1ed-a89a37f2fe8b","bb3d1e89-03c2-430b-aeb9-3ba0e34900d8",{});</script><script async src="https://cdn.permutive.com/e82dc6a7-79a5-49b7-b1ed-a89a37f2fe8b-web.js"></script><!-- Permutive SG Polls finish --><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<!-- OneTrust Cookies Consent Notice start for just-auto.com -->
+
+<script src="https://cdn-ukwest.onetrust.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="a7b0b173-17c1-48e4-8d9b-5b8516fbdb50" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for just-auto.com -->
+	<!-- This site is optimized with the Yoast SEO Premium plugin v17.8 (Yoast SEO v17.8) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Why Toyota leads the global automotive sales chart - Just Auto</title>
+	<link rel="canonical" href="https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Why Toyota leads the global automotive sales chart" />
+	<meta property="og:description" content="A robust supply chain and strong growth in electrified vehicles were among the factors that lifted Toyota to top of the global sales chart in 2021." />
+	<meta property="og:url" content="https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" />
+	<meta property="og:site_name" content="Just Auto" />
+	<meta property="article:published_time" content="2022-02-14T18:10:57+00:00" />
+	<meta property="article:modified_time" content="2022-02-25T07:34:28+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg" />
+	<meta name="twitter:creator" content="@dave_gdauto" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="David Leggett" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="3 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.just-auto.com/#website","url":"https://www.just-auto.com/","name":"Just Auto","description":"Automotive Industry News &amp; Analysis | Market Research - Just Auto","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.just-auto.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/#primaryimage","inLanguage":"en-US","url":"https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg","contentUrl":"https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg","width":424,"height":282},{"@type":"WebPage","@id":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/#webpage","url":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/","name":"Why Toyota leads the global automotive sales chart - Just Auto","isPartOf":{"@id":"https://www.just-auto.com/#website"},"primaryImageOfPage":{"@id":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/#primaryimage"},"datePublished":"2022-02-14T18:10:57+00:00","dateModified":"2022-02-25T07:34:28+00:00","author":{"@id":"https://www.just-auto.com/#/schema/person/1b708dd2f86b3a5a0597de21defa56c9"},"breadcrumb":{"@id":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/"]}]},{"@type":"BreadcrumbList","@id":"https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.just-auto.com/"},{"@type":"ListItem","position":2,"name":"Why Toyota leads the global automotive sales chart"}]},{"@type":"Person","@id":"https://www.just-auto.com/#/schema/person/1b708dd2f86b3a5a0597de21defa56c9","name":"David Leggett","image":{"@type":"ImageObject","@id":"https://www.just-auto.com/#personlogo","inLanguage":"en-US","url":"https://www.just-auto.com/wp-content/uploads/sites/30/2022/03/cropped-1450914_10152971569419595_3618146869210588429_n-177x177.jpg","contentUrl":"https://www.just-auto.com/wp-content/uploads/sites/30/2022/03/cropped-1450914_10152971569419595_3618146869210588429_n-177x177.jpg","caption":"David Leggett"},"description":"Just Auto\u2019s Editor since 2000. Past positions include head of automotive forecasting at the Economist Intelligence Unit (EIU), forecast analyst at IHS Markit and senior economist at the UK\u2019s Society of Motor Manufacturers and Traders (SMMT).","sameAs":["https://twitter.com/dave_gdauto"],"url":"https://www.just-auto.com/author/david_leggett_10407/"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.just-auto.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//cdn.permutive.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Just Auto &raquo; Feed" href="https://www.just-auto.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Just Auto &raquo; Comments Feed" href="https://www.just-auto.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Just Auto &raquo; Why Toyota leads the global automotive sales chart Comments Feed" href="https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/feed/" />
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-components-css'  href='https://www.just-auto.com/wp-includes/css/dist/components/style.min.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-editor-css'  href='https://www.just-auto.com/wp-includes/css/dist/block-editor/style.min.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-nux-css'  href='https://www.just-auto.com/wp-includes/css/dist/nux/style.min.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-reusable-blocks-css'  href='https://www.just-auto.com/wp-includes/css/dist/reusable-blocks/style.min.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-editor-css'  href='https://www.just-auto.com/wp-includes/css/dist/editor/style.min.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='custom-css-css'  href='https://www.just-auto.com/wp-content/plugins/gd-hic-theme/assets/css/custom.css?ver=5.8.45' type='text/css' media='all' />
+<link rel='stylesheet' id='main-css-css'  href='https://www.just-auto.com/wp-content/plugins/storefronts/assets/css/main_NS.css?ver=5.7.5' type='text/css' media='all' />
+<link rel='stylesheet' id='pmpro_frontend-css'  href='https://www.just-auto.com/wp-content/plugins/paid-memberships-pro/css/frontend.css?ver=2.5.7' type='text/css' media='screen' />
+<link rel='stylesheet' id='pmpro_print-css'  href='https://www.just-auto.com/wp-content/plugins/paid-memberships-pro/css/print.css?ver=2.5.7' type='text/css' media='print' />
+<link rel='stylesheet' id='membership-modalpopup-style-css'  href='https://www.just-auto.com/wp-content/plugins/pmpro-customizations/assets/css/membership-modal-popup.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='solr_frontend-css'  href='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/css/style.css?ver=22.9' type='text/css' media='all' />
+<link rel='stylesheet' onload="this.media='all'" id='figaro-fonts-css'  href='//fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&#038;display=swap&#038;family=IBM+Plex+Mono:wght@400;600&#038;display=swap&#038;family=IBM+Plex+Sans+Condensed:wght@300&#038;display=swap&#038;family=IBM+Plex+Serif:wght@400;600&#038;display=swap' type='text/css' media='all' />
+<link rel='stylesheet' id='charts-styles-css'  href='https://www.just-auto.com/wp-content/themes/figaro-child/assets/dist/css/charts.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='swiper-slider-css'  href='https://www.just-auto.com/wp-content/themes/figaro-child/assets/vendor/swiper/swiper.css?ver=6.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='figaro-article-css-css'  href='https://www.just-auto.com/wp-content/themes/figaro-child/assets/css/single-article.css?ver=0.2.6' type='text/css' media='all' />
+<link rel='stylesheet' id='figaro_css_main-css'  href='https://www.just-auto.com/wp-content/uploads/sites/30/figaro/assets/css/main22660f91bbe6586d3bcee17f430921c6.css?ver=5.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsolr-facet-range-css-css'  href='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/pro/extensions/theme/template/facet-range/wpsolr-facet-range.css?ver=22.9' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsolr-facet-color-picker-css-css'  href='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/pro/extensions/theme/template/facet-color-picker/wpsolr-facet-color-picker.css?ver=22.9' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='https://www.just-auto.com/wp-content/plugins/tablepress/css/default.min.css?ver=1.13' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.just-auto.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='crb-google-tagmanager-js-extra'>
+/* <![CDATA[ */
+var crbTracker = {"googleTagManager":{"id":"GTM-WRQFZ6L"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-tracking//js/googleTagManager.js?ver=1661642696' id='crb-google-tagmanager-js'></script>
+<script type='text/javascript' async src='https://cdn.permutive.com/e82dc6a7-79a5-49b7-b1ed-a89a37f2fe8b-web.js?ver=5.8.3' id='crb-permutive-cdn-js'></script>
+<script type='text/javascript' id='crb-permutive-js-extra'>
+/* <![CDATA[ */
+var crbTracker = {"permutive":{"workspaceID":"e82dc6a7-79a5-49b7-b1ed-a89a37f2fe8b","publicAPIKey":"62905692-4299-42af-951f-aa610546b2b1","postTitle":"Why Toyota leads the global automotive sales chart","postID":112617,"postType":"post","postDate":"February 14, 2022","postAuthor":"David Leggett","postTags":false,"postCategories":"Analysis","collectDomains":"https:\/\/www.just-auto.com\/wp-content\/plugins\/nsmg-tracking\/\/js\/pollsInFrame.js","pageViewEvent":{"company_name":"","post_title":"Why Toyota leads the global automotive sales chart","post_id":112617,"categories":["Analysis"],"tags":[],"author":"David Leggett","post_type":"post","article_date":"2022-02-14T18:10:57Z","regions":[],"industry_taxonomy":[],"sectors":[],"report_type":""}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-tracking//js/permutive.js?ver=1661642696' id='crb-permutive-js'></script>
+<script type='text/javascript' id='crb_segmentation-js-extra'>
+/* <![CDATA[ */
+var crbSiteData = {"ajaxURL":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-tracking//js/segmentation.js?ver=1661642696' id='crb_segmentation-js'></script>
+<link rel="https://api.w.org/" href="https://www.just-auto.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.just-auto.com/wp-json/wp/v2/posts/112617" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.just-auto.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.just-auto.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.8.3" />
+<link rel='shortlink' href='https://www.just-auto.com/?p=112617' />
+<link rel="alternate" type="application/json+oembed" href="https://www.just-auto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.just-auto.com%2Fanalysis%2Fwhy-toyota-leads-the-global-automotive-sales-chart%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.just-auto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.just-auto.com%2Fanalysis%2Fwhy-toyota-leads-the-global-automotive-sales-chart%2F&#038;format=xml" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFH8RPKJ6M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HFH8RPKJ6M');
+</script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-5D7BSTZ"></script><style id="Sgpollscstyle">iframe[src^="https://www.surveygizmo.eu"]{display:none!important;height:auto!important;}</style><!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '501151668227761');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=501151668227761&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+                        <script>
+            wpsolr_globalError = [];
+            window.onerror = function (msg, url, line, col, error) {
+                wpsolr_globalError.push({msg: msg, url: url, line: line, error: error});
+            };
+        </script>
+		
+<!-- BEGIN Parse.ly 2.6.1 -->
+<script type="application/ld+json">
+{"@context":"http:\/\/schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/www.just-auto.com\/analysis\/why-toyota-leads-the-global-automotive-sales-chart\/"},"headline":"Why Toyota leads the global automotive sales chart","url":"http:\/\/www.just-auto.com\/analysis\/why-toyota-leads-the-global-automotive-sales-chart\/","thumbnailUrl":"https:\/\/www.just-auto.com\/wp-content\/uploads\/sites\/30\/2021\/04\/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3-150x150.jpg","image":{"@type":"ImageObject","url":"https:\/\/www.just-auto.com\/wp-content\/uploads\/sites\/30\/2021\/04\/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3-150x150.jpg"},"dateCreated":"2022-02-14T18:10:57Z","datePublished":"2022-02-14T18:10:57Z","dateModified":"2022-02-14T18:10:57Z","articleSection":"Analysis","author":[{"@type":"Person","name":"David Leggett"}],"creator":["David Leggett"],"publisher":{"@type":"Organization","name":"Just Auto","logo":"http:\/\/www.just-auto.com\/wp-content\/uploads\/sites\/30\/2022\/01\/cropped-Just-Auto-Favicon.png"},"keywords":[]}
+</script>
+<!-- END Parse.ly -->
+
+<meta property="og:title" content="Why Toyota leads the global automotive sales chart" /><meta property="og:image" content="https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg" /><link rel="preload" href="https://www.just-auto.com/wp-content/themes/figaro/resources/images/lead-img.png" as="image" media="(min-width: 300px)">                <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+                <script>
+                    window.googletag = window.googletag || {cmd: []};
+		  googletag.cmd.push(function() {
+
+		var mapping1 = googletag.sizeMapping()
+                         .addSize([800, 0], [[775, 380]])
+                         .addSize([336, 0], [[300, 250], [336, 280]])
+                         .build();
+
+    			googletag.defineSlot('/14453196/Dianomi/Dianomi_End_of_Article', [[775,380]], 'div-gpt-ad-6530377-4')
+			.defineSizeMapping(mapping1)
+			.addService(googletag.pubads());
+		googletag.defineSlot('/14453196/Verdict/Verdict_Leaderboard', [[728,90],[970,250]], 'div-gpt-ad-6065588-1')
+             .addService(googletag.pubads());
+			googletag.defineSlot('/14453196/Verdict/Verdict_MPU', [[300,250],[300,600]], 'div-gpt-ad-6065588-2').addService(googletag.pubads());
+			googletag.defineSlot('/14453196/Verdict/Verdict_In_Article', [670, 220], 'div-gpt-ad-6065588-3').addService(googletag.pubads());
+			googletag.defineSlot('/14453196/Verdict/Verdict-In-Article-Mobile', [[300,250],[320,50]], 'div-gpt-ad-6065588-4').addService(googletag.pubads());
+    			googletag.defineSlot('/14453196/Dianomi/Dianomi_Right_Rail', [[300,600]], 'div-gpt-ad-6530377-1').addService(googletag.pubads());
+    			googletag.defineSlot('/14453196/Dianomi/Dianomi_In_Article_1', [[300,250],[336,280]], 'div-gpt-ad-6530377-2').addService(googletag.pubads());
+    			googletag.defineSlot('/14453196/Dianomi/Dianomi_In_Article_2', [[300,250],[336,280]], 'div-gpt-ad-6530377-3').addService(googletag.pubads());
+
+			googletag.pubads().setTargeting("Site", "Just-Auto");
+			googletag.pubads().enableSingleRequest();
+			googletag.enableServices();
+
+		  });                    googletag.cmd.push(function() {
+                     googletag.pubads().setTargeting( "Author", ["David Leggett"] ); googletag.pubads().setTargeting( "Category", ["Analysis"] );
+                    googletag.pubads().collapseEmptyDivs();
+                    });
+                </script>
+                
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="icon" href="https://www.just-auto.com/wp-content/uploads/sites/30/2022/01/cropped-Just-Auto-Favicon-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.just-auto.com/wp-content/uploads/sites/30/2022/01/cropped-Just-Auto-Favicon-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.just-auto.com/wp-content/uploads/sites/30/2022/01/cropped-Just-Auto-Favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.just-auto.com/wp-content/uploads/sites/30/2022/01/cropped-Just-Auto-Favicon-300x300.png" />
+</head>
+<body class="post-template-default single single-post postid-112617 single-format-standard wp-embed-responsive pmpro-body-has-access is-desktop wrapper-has-shadow block-head-1 magazine1 is-thumb-overlay-disabled is-header-layout-3 sidebar-right has-sidebar post-layout-1 narrow-title-narrow-media is-standard-format">
+    <!-- Google Tag Manager (noscript) -->
+				<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-WRQFZ6L'
+				height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+                        <!-- End Google Tag Manager (noscript) -->    
+<header class="c-header" id="c-header">
+    <div class="pre-header-subscribe">
+    <a class="pre-header-subscribe__all-newsletters" href="https://www.just-auto.com/all-newsletters">
+        <img src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/eye.svg' alt=''>
+        <span class="text">View all newsletters</span>
+        <span class="icon-chevron-right"></span>
+    </a>
+
+    <div class="pre-header-subscribe__click" onclick="showPopUp('newsletter')">
+        <figure class="pre-header-subscribe__figure">
+            <img src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/newsletter-icon.svg' alt=''>
+
+            <div class="lines"></div>
+        </figure>
+        <span class="text">
+        Receive our newsletter - data, insights and analysis delivered to you        <span class="icon-chevron-right"></span></span>
+    </div>
+</div>
+
+    <section class="c-header__wrapper">
+
+        <section class="c-header-title">
+            <div class="c-header-title__conversion">
+                            </div>
+
+                    
+        <div id="logo" class="c-header-title__logo " >
+        
+                
+        <a title="Just Auto" href="https://www.just-auto.com/"
+        class="header__logo">
+        <img src="https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/Just-Auto.png" alt="Just Auto" >        </a>
+        
+                
+        </div><!-- #logo /-->
+        
+                </section>
+
+        
+    </section>
+
+    <nav class="c-header-nav">
+        <div class="c-header-nav__container">
+            <a href="#" data-target="mega-menu" id="mega-menu-button"
+                class="c-header__button c-header__button--mega-menu c-hamburger-btn">
+                <span class="c-hamburger-btn__bars">
+                    <span class="c-hamburger-btn__bar"></span>
+                    <span class="c-hamburger-btn__bar"></span>
+                    <span class="c-hamburger-btn__bar"></span>
+                </span>
+                <span>All Sections</span>
+            </a>
+            <div class="c-header-nav__search">
+                <div id="header-search-form" data-link="header-search" class="c-header-nav__search__form">
+                    
+<form action="https://www.just-auto.com//s" class="c-search-form" method="get" role="search">
+    <label>
+
+        <input type="text" title="Search for:" name="search" value="" placeholder="Search &hellip;" class="c-search-form__input field" />
+    </label>
+
+
+    
+    <button type="submit" class="c-search-form__btn c-search-form__text icon-search">
+        Search    </button>
+</form>                </div>
+                <button aria-label="Search" id="header-search"
+                    class="c-header__button c-header__button--search icon-search"><i
+                        class="c-icon c-icon--search"></i></button>
+            </div>
+            <div class="c-header-nav__main">
+                <a href="#" id="header-dropdown" data-target="menu-main-menu-uk" class="c-header__button c-header__button--main-nav">In this section</a>
+                <div class="c-header-nav__main__container"><ul id="menu-header-menu" class="c-header-nav__main__nav" data-link="header-dropdown"><li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/news/">News</a></li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Analysis</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/analysis/">Analysis</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/comment/">Comment</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/interview/">Interview</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/marketdata/">Market Data</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Sectors</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/automotive-design/">Automotive Design</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/">Future Mobility</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+	<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/connectivity/">Connectivity</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/autonomous/">Autonomous</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/sharing/">Sharing/Subscription</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/electrification/">Electrification</a></li>
+	</ul>
+</li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/vehicle-manufacturing/">Vehicle Manufacturing</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/parts-tires/">Parts &amp; Tires</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/vehicle-markets/">Vehicle markets</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/theme/technology/">Technology</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="#">Motor Shows</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+	<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/geneva-motor-show/">Geneva</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/the-2014-consumer-electronics-show-ces-las-vegas/">Consumer Electronics Show (CES)</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/detroit-auto-show/">Detroit</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/paris-motor-show/">Paris</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/frankfurt-motor-show/">Frankfurt</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/tokyo-motor-show/">Tokyo</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/china-automotive-systems/">China Auto</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/other-global-auto-shows/">Other Shows</a></li>
+	</ul>
+</li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/ma-deals/">M&A Deals</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Themes</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/artificial-intelligence-in-automotive/">Artificial Intelligence</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/cloud-in-automotive/">Cloud</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/governance-in-automotive/">Corporate Governance</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/cybersecurity-in-automotive/">Cybersecurity</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/environment-sustainability-in-automotive/">Environmental Sustainability</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/the-internet-of-things-iot-in-automotive/">Internet of Things (IoT)</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/robotics-in-automotive/">Robotics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/social-sustainability-in-automotive/">Social Responsibility</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/covid-19-in-automotive/">Covid-19</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Insights</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/deals-insights/">Deal Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/filings/">Filing Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/jobs-dashboard/">Job Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/patents-dashboard/">Patent Analytics</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="https://www.just-auto.com/company-a-z/">Companies</a><span class="c-mega-menu__link__sub-link icon-chevron-down"></span>
+<ul class="c-header-menu__sub">
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/company-a-z/">Company A-Z</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/thought_leaders/">Thought Leaders</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/pressreleases/">Company Releases</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/whitepapers/">White Papers</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sponsored/">Sponsored</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/reports/">Reports</a></li>
+</ul></div>
+            </div>
+        </div>
+        <div id="mega-menu" data-link="mega-menu-button" class="c-header-nav__mega-menu c-mega-menu">
+            <div class="c-header-nav__mega-menu__container">
+                <div class="c-header-nav__mega-menu__scroll">
+
+                    <div class="c-mega-menu__search-form">
+                        
+<form action="https://www.just-auto.com//s" class="c-search-form" method="get" role="search">
+    <label>
+
+        <input type="text" title="Search for:" name="search" value="" placeholder="Search &hellip;" class="c-search-form__input field" />
+    </label>
+
+
+    
+    <button type="submit" class="c-search-form__btn c-search-form__text icon-search">
+        Search    </button>
+</form>                    </div>
+
+                    <div class="c-menu-tabs c-mega-menu__item">
+
+                        <a href="https://www.just-auto.com/"
+                            class="c-mega-menu__link">Home</a>
+                        <ul class="c-mega-menu__sub c-mega-menu__sub--active"></ul>
+
+                        <div class="menu-burger-menu-container"><ul id="menu-burger-menu" class="c-mega-menu__tabs"><li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/news/">News</a></li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Analysis</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/analysis/">Analysis</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/comment/">Comment</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/interview/">Interviews</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/marketdata/">Market Data</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/awards/">Awards &amp; Rankings</a></li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Sectors</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/automotive-design/">Automotive Design</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/">Future Mobility</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+	<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/connectivity/">Connectivity</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/autonomous/">Autonomous</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/sharing/">Sharing/Subscription</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/future-mobility/electrification/">Electrification</a></li>
+	</ul>
+</li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/vehicle-manufacturing/">Vehicle Manufacturing</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/parts-tires/">Parts &amp; Tires</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/vehicle-markets/">Vehicle markets</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/theme/technology/">Technology</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="#">Motor Shows</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+	<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/just-auto/tag/geneva-motor-show/">Geneva</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/the-2014-consumer-electronics-show-ces-las-vegas/">Consumer Electronics Show (CES)</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/detroit-auto-show/">Detroit</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/paris-motor-show/">Paris</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/frankfurt-motor-show/">Frankfurt</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/tokyo-motor-show/">Tokyo</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/china-automotive-systems/">China Auto</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/tag/other-global-auto-shows/">Other Shows</a></li>
+	</ul>
+</li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sector/ma-deals/">M&A deals</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Themes</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/artificial-intelligence-in-automotive/">Artificial Intelligence</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/cloud-in-automotive/">Cloud</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/governance-in-automotive/">Corporate Governance</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/cybersecurity-in-automotive/">Cybersecurity</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/environment-sustainability-in-automotive/">Environmental Sustainability</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/the-internet-of-things-iot-in-automotive/">Internet of Things (IoT)</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/robotics-in-automotive/">Robotics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/social-sustainability-in-automotive/">Social Responsibility</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/covid-19-in-automotive/">Covid-19</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Insights</a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/deals-insights/">Deal Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/filings/">Filing Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/jobs-dashboard/">Job Analytics</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/patents-dashboard/">Patent Analytics</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item c-parent-menu-item"><a class="c-mega-menu__link " href="#">Companies </a><span class="c-mega-menu__link__sub-link icon-chevron-right"></span>
+<ul class="c-mega-menu__sub">
+
+<li class="c-mega-menu-nav__item__back"><a href="#" class="c-mega-menu__sub__back"><i class="c-icon icon-chevron-left"></i>Back to all sections</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/company-a-z/">Company A-Z</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/thought_leaders/">Thought Leaders</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/pressreleases/">Company releases</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/whitepapers/">White Papers</a></li>
+<li class="c-mega-menu__sub__item sub__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/sponsored/">Sponsored</a></li>
+</ul>
+</li>
+<li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/reports/">Reports</a></li>
+<li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/just-auto-magazine/">Magazine</a></li>
+<li class="c-mega-menu-nav__item"><a class="c-mega-menu__link " href="https://www.just-auto.com/lmc-automotive/">LMC Automotive</a></li>
+</ul></div>
+                    </div>
+
+                    
+                    <div class="c-mega-menu__item c-mega-menu__second">
+                        <div class="c-mega-menu__second--inner">
+                            <h6>Partners</h6>
+
+                            <div class="menu-partners-container"><ul id="menu-partners" class="c-mega-menu__second-nav"><li class="c-mega-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.just-auto.com/sector/partners/integration-engineering-of-battery-pack-in-ev-chassis/">Integration Engineering of Battery Pack in EV Chassis</a></li>
+<li class="c-mega-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.just-auto.com/sector/partners/accelerating-the-future-of-connected-and-automated-driving/">Accelerating the future of connected and automated driving</a></li>
+</ul></div>                        </div>
+
+                    </div>
+
+                    <div class="c-extra-menu__item c-mega-menu__item">
+                        <h6>GlobalData</h6>
+
+                        <div class="menu-globaldata-container"><ul id="menu-globaldata" class="c-extra-menu__second-nav"><li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.just-auto.com/about-us-online/">About Us</a></li>
+<li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.just-auto.com/advertise-with-us/">Advertise With Us</a></li>
+<li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.just-auto.com/contact-us/">Contact Us</a></li>
+<li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://www.verdictmediastrategies.com/">Our Marketing Solutions</a></li>
+<li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://store.globaldata.com/">GlobalData reports</a></li>
+<li class="c-extra-menu__second-nav__item"><a class="c-mega-menu__link" href="https://store.globaldata.com/">Visit GlobalData</a></li>
+</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header><!-- /.c-header -->
+
+<div id="overlay" class="c-overlay c-overlay--mega-menu"></div>    <main>
+        <div class="wrapper">
+            <div class="wrapper__inner">
+
+
+<div class="main-content " role="main">
+
+    
+    <article id="the-post" class="c-article-single figaro-standard">
+
+        
+<header class="c-article-header
+    ">
+    <div class="c-article-header__container
+     c-article-header__container--no-author    ">
+
+                
+        <div class="c-meta">
+                        <ol itemscope="" itemtype="https://schema.org/BreadcrumbList" class="c-breadcrumbs"><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="c-breadcrumbs__item">
+                                    <a itemprop="item"  href="https://www.just-auto.com/analysis/" class="c-breadcrumbs__link"><span itemprop="name">Analysis</span>
+                                    <meta itemprop="position" content="1"></a>
+                                    <i class="c-icon icon-c-icon icon-chevron-right"></i>
+                                </li></ol>
+            <div class="c-date"><span class="meta-item c-date__published">February 14, 2022</span><span class="c-date__modified">updated 25 Feb 2022 7:34am</span></div>        </div>
+
+        
+        <div class="c-entry-header">
+            
+            <h1 class="c-article-header__title">Why Toyota leads the global automotive sales chart</h1>
+
+                        <p class="c-article-excerpt">A robust supply chain and strong growth in electrified vehicles were among the factors that lifted Toyota to top of the global sales chart in 2021.</p>
+            
+
+
+        </div><!-- .entry-header /-->
+
+        
+        
+    </div><!-- Normal closing div -->
+</header><!-- .entry-header-outer /-->
+    
+        <section class="c-article-content c-entry-content entry clearfix
+            ">
+            <div class="c-article-content__container">
+
+                <div class="c-featured-image">
+        <figure class="c-featured-image__container">
+
+        <img width="424" height="282" src="https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg" class="attachment-4x3-large-crop size-4x3-large-crop wp-post-image" alt="" loading="lazy" srcset="https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg 424w, https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3-300x200.jpg 300w, https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3-397x264.jpg 397w, https://www.just-auto.com/wp-content/uploads/sites/30/2021/04/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3-180x120.jpg 180w" sizes="(max-width: 1407px) 1407px, (max-width: 335px) 335px, (max-width: 705px) 705px, (max-width: 335px) 335px, (max-width: 689px) 689px, (max-width: 336px) 336px, (max-width: 210px) 210px, (max-width: 101px) 101px, (max-width: 1024px) 1024px, (max-width: 101px) 101px, (max-width: 397px) 397px, (max-width: 464px) 464px, (max-width: 797px) 797px, (max-width: 960px) 960px, (max-width: 314px) 314px, (max-width: 464px) 464px, (max-width: 735px) 735px, (max-width: 1038px) 1038px" />
+            </figure>
+    </div>
+
+    <div class="c-share">
+    <ul class="c-share__list">
+        <li>
+            <a href="mailto:type%20email%20address%20here?subject=I%20wanted%20to%20share%20this%20post%20with%20you%20from%20Just%20Auto&body=Why%20Toyota%20leads%20the%20global%20automotive%20sales%20chart%20-%20https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" class="c-share__link icon-email" title="Share in an email">
+            </a>
+        </li>
+        <li>
+            <a class="c-share__link  icon-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" title="Share on LinkedIN">
+            </a>
+        </li>
+        <li>
+        <a class="c-share__link  icon-twitter" href="https://twitter.com/intent/tweet?text=Why+Toyota+leads+the+global+automotive+sales+chart%0a&url=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/&via=justauto" target="_blank" title="Share on Twitter">
+            </a>
+        </li>
+        <li>
+            <a class="c-share__link  icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" title="Share on facebook">
+            </a>
+        </li>
+    </ul>
+</div>
+
+                
+                
+<p>While many automakers continued to face COVID-19 headwinds in 2021, Japan’s Toyota Motor Corp. seems to have fared best in 2021. Compared with key competitors Toyota excelled in sales volumes in all major markets.</p>
+
+
+
+<p>According to GlobalData’s estimates Toyota, along with its affiliate companies, sold over 10.07 million light vehicles in the 2021 calendar year, up from 9.3 million units the previous year. The performance confirmed Toyota as the world’s leading automaker in terms of sales for the second consecutive year. The year-on-year growth of 9.2% increased the gap with Toyota’s closest competitor Volkswagen Group to 1.63 million units, compared to the 250K delta in 2020. Volkswagen Group sold 8.5 million units in 2021, 5.9% down from the previous year.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="747" height="428" src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota1.jpg" alt="" class="wp-image-112619" srcset="https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota1.jpg 747w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota1-300x172.jpg 300w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota1-397x227.jpg 397w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota1-180x103.jpg 180w" sizes="(max-width: 747px) 100vw, 747px" /></figure>
+
+
+
+<p>Toyota has set some major milestones in 2021. Its vehicle sales reached a record high of 1.94 million units in China and surpassed General Motors in US sales, breaking the latter’s 90-year sales streak. Toyota’s global leadership is attributed to its robust supply chain network and a business strategy that remained adaptable to local markets which helped the company to steadily penetrate key automotive markets. For instance, Toyota has been on a growth spree in China for the past nine years and managed to grow above the industry average. Toyota also navigated round the impact of COVID-19 infections and semiconductor shortages better than its competitors. For example, Volkswagen’s biggest unit at Wolfsburg – which manufactures Golf, Touran, Tiguan and Seat Tarraco models &#8211; remained significantly impacted throughout the year due to chip shortages. VW Group remained second most impacted OEM after Ford, in terms of production losses. It lost 1.15 million units of production in 2021. In general, Japan and other Asian countries remained less affected by virus than Europe, acting as a positive factor for Toyota.</p><div id="slot-one"></div>
+
+
+
+<p>Over and above all factors, strong growth in hybrid and electric vehicles sales have also upped the game for Toyota in 2021, which was supported by favourable market dynamics. Fast-tracking electrification is set to further boost Toyota’s growth in the years to come.</p>
+   <div id="relatedArticles" class="c-related-articles">
+
+				<div class="c-related-companies">
+
+					<aside class="prj--sidebar">
+						<div class="">
+							<a href="https://www.just-auto.com/prospecting/" target="_blank" class="prospecting-img"> <img src="https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/free-prospecting.png" style="border-radius: 10px; margin-bottom:1rem;
+																				display:none;"></a>
+								 <div class="c-read-next" style="
+																						display:none; 
+																		">
+								<div class="c-read-next__title">Companies Intelligence</div>
+							</div>
+														<div class="view-all-link" style="display:none">
+																<a href="https://www.globaldata.com/companies/" target="_blank" class="c-widget__link--all">View All</a>
+							</div>
+						</div>
+						<!--Top #-->
+					</aside><!-- .widget /-->
+				</div>
+
+				
+				<div id="relatedArticles" class="c-related-articles" style="margin:0 ;  display:none; 
+								">
+
+					<div class="c-read-next">
+						<div class="c-read-next__title">Reports</div>
+
+
+						
+
+						<div class="view-all-link"><a href="https://www.globaldata.com/store/search/?s=" target="_blank" class="c-widget__link--all ">View All</a></div>
+					</div>
+				</div>
+			
+								<div id="relatedArticles" class="single-related">
+						<div class="c-read-next">
+							<div class="c-read-next__title">Related Articles</div>
+								
+								<div class="c-read-next__article  single-related reports">
+																	<a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/" class="c-read-next__img-link"><img src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Vivaro-1-150x150.jpeg"></a>
+
+																												<div class="c-read-next__article__meta">
+																					<a href="https://www.just-auto.com/analysis" class="c-read-next__article__category post-catfigaro-cat-260 the-global-title">
+											Analysis</a>
+													   										<div class="timeline__single">
+											<div class="timeline__single__heading ">
+											<a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/">UK vehicle manufacturing picks up, SsangYong assets buy approved – the week</a>
+											</div>
+										</div>
+										<div class="c-sponsored-article__author ">
+																					</div>
+									</div>
+
+
+								</div>
+
+												
+								<div class="c-read-next__article  single-related reports">
+																	<a href="https://www.just-auto.com/news/uk-commercial-vehicle-output-up-43-9-in-july/" class="c-read-next__img-link"><img src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Vivaro-150x150.jpeg"></a>
+
+																												<div class="c-read-next__article__meta">
+																					<a href="https://www.just-auto.com/analysis" class="c-read-next__article__category post-catfigaro-cat-260 the-global-title">
+											Analysis</a>
+													   										<div class="timeline__single">
+											<div class="timeline__single__heading ">
+											<a href="https://www.just-auto.com/news/uk-commercial-vehicle-output-up-43-9-in-july/">UK commercial vehicle output up 43.9% in July</a>
+											</div>
+										</div>
+										<div class="c-sponsored-article__author ">
+																					</div>
+									</div>
+
+
+								</div>
+
+												
+								<div class="c-read-next__article  single-related reports">
+																	<a href="https://www.just-auto.com/analysis/chengdu-motor-show-world-debuts-list-2/" class="c-read-next__img-link"><img src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Chengdu-Motor-Show-150x150.png"></a>
+
+																												<div class="c-read-next__article__meta">
+																					<a href="https://www.just-auto.com/analysis" class="c-read-next__article__category post-catfigaro-cat-260 the-global-title">
+											Analysis</a>
+													   										<div class="timeline__single">
+											<div class="timeline__single__heading ">
+											<a href="https://www.just-auto.com/analysis/chengdu-motor-show-world-debuts-list-2/">2022 Chengdu motor show - the world debuts</a>
+											</div>
+										</div>
+										<div class="c-sponsored-article__author ">
+																					</div>
+									</div>
+
+
+								</div>
+
+												
+								<div class="c-read-next__article  single-related reports">
+																	<a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/" class="c-read-next__img-link"><img src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Vivaro-1-150x150.jpeg"></a>
+
+																												<div class="c-read-next__article__meta">
+																					<a href="https://www.just-auto.com/analysis" class="c-read-next__article__category post-catfigaro-cat-260 the-global-title">
+											Analysis</a>
+													   										<div class="timeline__single">
+											<div class="timeline__single__heading ">
+											<a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/">UK vehicle manufacturing picks up, SsangYong assets buy approved – the week</a>
+											</div>
+										</div>
+										<div class="c-sponsored-article__author ">
+																					</div>
+									</div>
+
+
+								</div>
+
+																		</div>
+					</div>
+									<div class="c-related-Insights" style="
+									display:none; 
+								">
+					<aside class="prj--sidebar">
+						<div class="">
+							<div class="c-read-next">
+								<div class="c-read-next__title"> Data Insights </div>
+							</div>
+														<!--list end-->
+							<div class="view-all-link"><a href="https://www.globaldata.com/data-insights/" target="_blank" class="c-widget__link--all">View All</a></div>
+						</div>
+						<!--Top #-->
+
+					</aside>
+				</div>
+						</div>
+
+
+		<script type="text/javascript">
+document.getElementById("hideshowcmps").addEventListener("click", function(event){
+	event.preventDefault()
+	let x = document.getElementsByClassName("hidecmp");
+	for (let i = 0; i < x.length; i++) {
+	   x.item(i).classList.toggle("showcmp")
+	}
+	if (this.innerHTML === "View More") {
+		this.innerHTML = "View Less";
+	} else {
+		this.innerHTML = "View More";
+	}
+});
+</script>
+
+
+
+<p>While Toyota estimates a yearly production output (FY ending March 2022) below the initial expectation of 9 million vehicles, it is now more strongly positioned than Volkswagen to secure its leading position at least for the near term.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="764" height="792" src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota2.jpg" alt="" class="wp-image-112620" srcset="https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota2.jpg 764w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota2-289x300.jpg 289w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota2-397x412.jpg 397w, https://www.just-auto.com/wp-content/uploads/sites/30/2022/02/Toyota2-174x180.jpg 174w" sizes="(max-width: 764px) 100vw, 764px" /></figure>
+<div id="Sgpollsputhere"></div></p><div class="stream-item ad stream-item-in-post stream-item-inline-post ad ad-mobile">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- /14453196/Verdict/Verdict-In-Article-Mobile -->
+
+<div id='div-gpt-ad-6065588-4' class="in-article-mobile-dfp-ad-1">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6065588-4'); });
+  </script>
+</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div><div class="stream-item ad stream-item-in-post stream-item-inline-post ad ad-desktop">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- GPT AdSlot 3 for Ad unit 'Verdict/Verdict_In_Article' ### Size: [[670,220]] -->
+<div id='div-gpt-ad-6065588-3' class="in-article-desktop-only-dfp-ad-1">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-6065588-3'); });
+  </script>
+</div>
+<!-- End AdSlot 3 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div></p><div id="slot-three"></div></p>                                
+                
+                <div class="c-share c-share--clear">
+    <ul class="c-share__list">
+        <li>
+            <a href="" class="c-share__link icon-email" title="Share in an email">
+            </a>
+        </li>
+        <li>
+            <a class="c-share__link  icon-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" title="Share on LinkedIN">
+            </a>
+        </li>
+        <li>
+            <a class="c-share__link  icon-twitter"  href="https://twitter.com/intent/tweet?url=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" title="Share on Twitter">
+            </a>
+        </li>
+        <li>
+            <a class="c-share__link  icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.just-auto.com/analysis/why-toyota-leads-the-global-automotive-sales-chart/" target="_blank" title="Share on facebook">
+            </a>
+        </li>
+    </ul>
+</div>
+
+            </div>
+
+        </section><!-- .entry-content /-->
+
+        <script id="tie-schema-json" type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Article","dateCreated":"2022-02-14T18:10:57+01:00","datePublished":"2022-02-14T18:10:57+01:00","dateModified":"2022-02-25T07:34:28+01:00","headline":"Why Toyota leads the global automotive sales chart","name":"Why Toyota leads the global automotive sales chart","keywords":[],"url":"https:\/\/www.just-auto.com\/analysis\/why-toyota-leads-the-global-automotive-sales-chart\/","description":"While many automakers continued to face COVID-19 headwinds in 2021, Japan\u2019s Toyota Motor Corp. seems to have fared best in 2021. Compared with key competitors Toyota excelled in sales volumes in all m","copyrightYear":"2022","articleSection":"Analysis","articleBody":"\nWhile many automakers continued to face COVID-19 headwinds in 2021, Japan\u2019s Toyota Motor Corp. seems to have fared best in 2021. Compared with key competitors Toyota excelled in sales volumes in all major markets.\n\n\n\nAccording to GlobalData\u2019s estimates Toyota, along with its affiliate companies, sold over 10.07 million light vehicles in the 2021 calendar year, up from 9.3 million units the previous year. The performance confirmed Toyota as the world\u2019s leading automaker in terms of sales for the second consecutive year. The year-on-year growth of 9.2% increased the gap with Toyota\u2019s closest competitor Volkswagen Group to 1.63 million units, compared to the 250K delta in 2020. Volkswagen Group sold 8.5 million units in 2021, 5.9% down from the previous year.\n\n\n\n\n\n\n\nToyota has set some major milestones in 2021. Its vehicle sales reached a record high of 1.94 million units in China and surpassed General Motors in US sales, breaking the latter\u2019s 90-year sales streak. Toyota\u2019s global leadership is attributed to its robust supply chain network and a business strategy that remained adaptable to local markets which helped the company to steadily penetrate key automotive markets. For instance, Toyota has been on a growth spree in China for the past nine years and managed to grow above the industry average. Toyota also navigated round the impact of COVID-19 infections and semiconductor shortages better than its competitors. For example, Volkswagen\u2019s biggest unit at Wolfsburg \u2013 which manufactures Golf, Touran, Tiguan and Seat Tarraco models - remained significantly impacted throughout the year due to chip shortages. VW Group remained second most impacted OEM after Ford, in terms of production losses. It lost 1.15 million units of production in 2021. In general, Japan and other Asian countries remained less affected by virus than Europe, acting as a positive factor for Toyota.\n\n\n\nOver and above all factors, strong growth in hybrid and electric vehicles sales have also upped the game for Toyota in 2021, which was supported by favourable market dynamics. Fast-tracking electrification is set to further boost Toyota\u2019s growth in the years to come.\n\n\n\nWhile Toyota estimates a yearly production output (FY ending March 2022) below the initial expectation of 9 million vehicles, it is now more strongly positioned than Volkswagen to secure its leading position at least for the near term.\n\n\n\n\n","publisher":{"@id":"#Publisher","@type":"Organization","name":"Just Auto","logo":{"@type":"ImageObject","url":"https:\/\/www.just-auto.com\/wp-content\/uploads\/sites\/30\/2021\/04\/Just-Auto.png"},"sameAs":["https:\/\/www.facebook.com\/globaldataplc\/","https:\/\/twitter.com\/justauto\/","https:\/\/www.linkedin.com\/company\/globaldataplc\/"]},"sourceOrganization":{"@id":"#Publisher"},"copyrightHolder":{"@id":"#Publisher"},"mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.just-auto.com\/analysis\/why-toyota-leads-the-global-automotive-sales-chart\/"},"author":{"@type":"Person","name":"David Leggett","url":"https:\/\/www.just-auto.com\/author\/david_leggett_10407\/"},"image":{"@type":"ImageObject","url":"https:\/\/www.just-auto.com\/wp-content\/uploads\/sites\/30\/2021\/04\/2020-07-20-10-24-newtoyotabrandlogoforrelease_cropped_70-3.jpg","width":1200,"height":282}}</script><div id="sidebar-container" class="c-sidebar">
+    </div>
+
+
+    </article><!-- #the-post /-->
+
+    
+    <div class="post-components">
+        <div class="prj--rr">
+		<div class="prj--rr-col">
+        		</div>
+</div>
+    </div><!-- .post-components /-->
+
+    
+</div><!-- .main-content -->
+
+
+<div class="footer-widgets-container">
+    <div class="container">
+        
+        <footer class="c-article-footer">
+            <div class="c-article-footer__container l-segment c-article-footer__container--small" data-columns=3>
+
+                
+                                <div class="l-segment__item">
+                    <h3 class="c-widget__title">More from this topic</h3><div id="posts-list-widget-2" class="c-container-wrapper c-widget posts-list"><div class="posts-list-items">
+<div class="c-af__related-article">
+        <a href="https://www.just-auto.com/analysis/chengdu-motor-show-world-debuts-list-2/" class="c-af__related__img-link">
+        <img  alt="2022 Chengdu motor show - the world debuts" src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Chengdu-Motor-Show-150x150.png"></a>
+         
+    <div class="c-af__meta">
+        <h6 class="c-af__related__headline"><a href="https://www.just-auto.com/analysis/chengdu-motor-show-world-debuts-list-2/" title="2022 Chengdu motor show - the world debuts">2022 Chengdu motor show - the world debuts</a></h6>
+    </div>
+</div>
+<div class="c-af__related-article">
+        <a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/" class="c-af__related__img-link">
+        <img  alt="UK vehicle manufacturing picks up, SsangYong assets buy approved – the week" src="https://www.just-auto.com/wp-content/uploads/sites/30/2022/08/Vivaro-1-150x150.jpeg"></a>
+         
+    <div class="c-af__meta">
+        <h6 class="c-af__related__headline"><a href="https://www.just-auto.com/analysis/uk-vehicle-manufacturing-picks-up-ssangyong-assets-buy-approved-the-week/" title="UK vehicle manufacturing picks up, SsangYong assets buy approved – the week">UK vehicle manufacturing picks up, SsangYong assets buy approved – the week</a></h6>
+    </div>
+</div>
+<div class="c-af__related-article">
+     
+    <div class="c-af__meta">
+        <h6 class="c-af__related__headline"><a href="https://www.just-auto.com/uncategorized/championing-sustainability-in-motorsport-with-alejandro-agag-part-2/" title="Championing Sustainability in Motorsport with Alejandro Agag - Part 2">Championing Sustainability in Motorsport with Alejandro Agag - Part 2</a></h6>
+    </div>
+</div></div><div class="clearfix"></div></div><!-- .widget /-->                </div>
+                
+                                <div class="l-segment__item">
+                    <div id="gdreports_widget-2" class="c-container-wrapper c-widget widget_gdreports_widget"><div class="c-widget__title the-global-title"><div class="the-subtitle">GlobalData Reports</div><a href="https://www.globaldata.com/store/industry/automotive-market/" target="_blank" class="c-widget__link--all">See All</a></div>                    <div class="c-author-related__article">
+                    <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-industry-m-and-a-deals-by-theme-quarterly-analysis/" class="c-author-related__img-link">
+                        <img width="20" height="24" src="https://live-b2b-gdm-figaro2.pantheonsite.io/privatebankerinternational/wp-content/uploads/sites/5/2022/01/Global-Data-Logo.png" alt="">
+                    </a>
+                    <div class="c-author-related__meta">
+                        <a href="javascript:void(0)" class="c-author-related__author-link">
+                            GlobalData Report
+                        </a>
+                        <h6 class="c-author-related__headline">
+                            <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-industry-m-and-a-deals-by-theme-quarterly-analysis/">Automotive Industry Mergers and Acquisitions Deals by Top Themes in Q2 2022 – Thematic Research</a>
+                        </h6>
+                    </div>
+                    </div>
+                                                       <div class="c-author-related__article">
+                    <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-door-modules-market-analysis/" class="c-author-related__img-link">
+                        <img width="20" height="24" src="https://live-b2b-gdm-figaro2.pantheonsite.io/privatebankerinternational/wp-content/uploads/sites/5/2022/01/Global-Data-Logo.png" alt="">
+                    </a>
+                    <div class="c-author-related__meta">
+                        <a href="javascript:void(0)" class="c-author-related__author-link">
+                            GlobalData Report
+                        </a>
+                        <h6 class="c-author-related__headline">
+                            <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-door-modules-market-analysis/">Automotive Door Modules Market and Trend Analysis by Technology, Key Companies and Forecast, 2021-2036</a>
+                        </h6>
+                    </div>
+                    </div>
+                                                       <div class="c-author-related__article">
+                    <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-roof-systems-market-analysis/" class="c-author-related__img-link">
+                        <img width="20" height="24" src="https://live-b2b-gdm-figaro2.pantheonsite.io/privatebankerinternational/wp-content/uploads/sites/5/2022/01/Global-Data-Logo.png" alt="">
+                    </a>
+                    <div class="c-author-related__meta">
+                        <a href="javascript:void(0)" class="c-author-related__author-link">
+                            GlobalData Report
+                        </a>
+                        <h6 class="c-author-related__headline">
+                            <a target="_blank" href="
+https://www.globaldata.com/store/report/automotive-roof-systems-market-analysis/">Automotive Roof Systems Market and Trend Analysis by Technology, Key Companies and Forecast, 2021-2036</a>
+                        </h6>
+                    </div>
+                    </div>
+                                   <div class="clearfix"></div></div><!-- .widget /-->                </div>
+                
+                
+        </footer><!-- .footer-widget-area /-->
+
+                </div><!-- .container /-->
+</div><!-- #Footer-widgets-container /-->
+        
+</div><!-- /.wrapper__inner -->
+</div><!-- /.wrapper -->
+</main><!-- /.main -->
+
+
+<footer class="c-footer">
+    <div class="c-footer__container">
+                <div class="c-footer__nav">
+            <div class="c-footer__title">Just Auto</div>
+            <div class="menu-primary-footer-menu-container"><ul id="menu-primary-footer-menu" class="c-footer-menu"><li id="menu-item-110243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110243"><a href="https://www.just-auto.com/about-us-online/">About us</a></li>
+<li id="menu-item-115194" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-115194"><a href="https://www.just-auto.com/advertise-with-us/">Advertise with us</a></li>
+<li id="menu-item-111858" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-111858"><a href="https://globaldata.chargifypay.com/subscribe/7z8zyf2974bq/just-auto">Become a member</a></li>
+<li id="menu-item-110244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110244"><a href="https://www.just-auto.com/contact-us/">Contact us</a></li>
+<li id="menu-item-110247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110247"><a href="https://www.just-auto.com/editorial-standards/">Editorial approach</a></li>
+<li id="menu-item-110248" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110248"><a href="https://www.verdictmediastrategies.com/">Our marketing solutions</a></li>
+</ul></div>        </div>
+        <div class="c-footer__social">
+            <div class="c-footer__title">Social</div>
+            <div class="c-social">
+                <ul><li class="c-social-icons-item"><a class="c-social-link facebook-social-icon" rel="external noopener nofollow" target="_blank" href="https://www.facebook.com/globaldataplc/" title="Follow us on Facebook"><span class="icon-facebook"></span><span class="screen-reader-text">Facebook</span></a></li><li class="c-social-icons-item"><a class="c-social-link twitter-social-icon" rel="external noopener nofollow" target="_blank" href="https://twitter.com/justauto/" title="Follow us on Twitter"><span class="icon-twitter"></span><span class="screen-reader-text">Twitter</span></a></li><li class="c-social-icons-item"><a class="c-social-link linkedin-social-icon" rel="external noopener nofollow" target="_blank" href="https://www.linkedin.com/company/globaldataplc/" title="Follow us on LinkedIn"><span class="icon-linkedin"></span><span class="screen-reader-text">LinkedIn</span></a></li></ul> 
+            </div>
+        </div>
+                    <div class="c-footer__legal">
+                <div class="c-footer__title">Legal</div>
+                <div class="c-footer__menu"><ul id="menu-legal" class="c-footer-menu"><li id="menu-item-110328" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110328"><a href="http://www.globaldata.com/privacy-policy/">Privacy policy</a></li>
+<li id="menu-item-113540" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-113540"><a href="https://www.globaldata.com/terms-conditions/">Terms and conditions</a></li>
+</ul></div>            </div>
+                <div class="c-footer__copyright">
+            <div class="c-copyright-text c-copyright-text-first">Automotive Industry News & Analysis | Market Research - Just Auto</div><div class="c-copyright-text c-copyright-text-second">&copy; Copyright 2022, All Rights Reserved </div>        </div>
+
+                
+        <div class="footer__inner">
+            
+                <div id="footer-widgets-container">
+                    <div class="container">
+                        
+
+                    </div><!-- .container /-->
+                </div><!-- #Footer-widgets-container /-->
+            
+        </div><!-- /.footer__inner -->
+    </div>
+
+    <!--Powered by Verdict Section -->
+            <div class="c-footer__container"  id="nsmgfooterlogospoweredby"">
+        <a href="https://www.verdictmediastrategies.com" class="imprint">
+            Powered by           
+        <img
+         src="https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/verdict-logo.png"        >
+        </a>
+    </div>
+            <!--.End of Powered by Verdict Section -->
+
+</footer><!-- /.footer -->
+</div><!-- /.wrapper__inner -->
+</div><!-- /.wrapper -->
+</main><!-- /.main -->
+<section class="pop-up" id="newsletter-pop-up">
+    <form class="pop-up__form" id="pop-up-form" method="post" target="submitFrame" action="https://ww2.verdict.co.uk/l/375012/2021-05-05/6jx9d2" onsubmit="afterSubmit()">
+        <button class="pop-up__close icon-close" onclick="hidePopUp()"></button>
+        <div class="pop-up__inner">
+            <span class="pop-up__pre-title">NEWSLETTER</span>
+            <span class="pop-up__title">Sign up</span>
+            <span class="pop-up__semi-title">Tick the boxes of the newsletters you would like to receive.</span>
+
+                        <label for="_pardot-1">
+                <h4>Just Auto Daily News</h4>
+                <input id="_pardot-1"type="checkbox" name="justauto_daily" value="">
+            </label>
+            <span class="pop-up__label-description">The top stories of the day delivered to you every weekday. </span>
+                        <label for="_pardot-2">
+                <h4>Just Auto Weekly News</h4>
+                <input id="_pardot-2"type="checkbox" name="justauto_weekly" value="">
+            </label>
+            <span class="pop-up__label-description">A weekly roundup of the latest news and analysis, sent every Monday.</span>
+                        <label for="_pardot-3">
+                <h4>Just Auto Magazine</h4>
+                <input id="_pardot-3"type="checkbox" name="justauto_digimag" value="">
+            </label>
+            <span class="pop-up__label-description">The industry's most comprehensive news and information delivered every quarter.</span>
+                     
+        </div>
+        <div class="pop-up__submit-box" id="submit-box">
+            <input type="text" name="email" class="email-input" required placeholder="Email address" onchange="validateNewsletters(this.form, this.form.email)"/>
+            <span class="pop-up__error"></span>
+                        <select name="job_title" id="job-dropdown">
+                    <option value="" selected disabled hidden>Job title</option>
+                                          <option value="Administrative">Administrative</option>
+                                          <option value="Advertising/Marketing/PR/Product/Brand">Advertising/Marketing/PR/Product/Brand</option>
+                                          <option value="Audit/Accounting/Finance">Audit/Accounting/Finance</option>
+                                          <option value="Board Level Management">Board Level Management</option>
+                                          <option value="Buyer/Purchasing/Procurement">Buyer/Purchasing/Procurement</option>
+                                          <option value="Compliance/Regulation/Risk">Compliance/Regulation/Risk</option>
+                                          <option value="Distribution/Logistics/Supply Chain">Distribution/Logistics/Supply Chain</option>
+                                          <option value="Editorial/Media">Editorial/Media</option>
+                                          <option value="Engineering">Engineering</option>
+                                          <option value="Facilities">Facilities</option>
+                                          <option value="Graphic Design/Design/Architecture">Graphic Design/Design/Architecture</option>
+                                          <option value="Human Resources (HR)/Training/Education">Human Resources (HR)/Training/Education</option>
+                                          <option value="Information Management">Information Management</option>
+                                          <option value="Information Technology">Information Technology</option>
+                                          <option value="Legal">Legal</option>
+                                          <option value="Medical Practice">Medical Practice</option>
+                                          <option value="Operations">Operations</option>
+                                          <option value="Politics">Politics</option>
+                                          <option value="Production/Manufacturing/Maintenance">Production/Manufacturing/Maintenance</option>
+                                          <option value="Project Management">Project Management</option>
+                                          <option value="Research/Development">Research/Development</option>
+                                          <option value="Safety/Security">Safety/Security</option>
+                                          <option value="Sales/Account Management/Customer Services/Business Development">Sales/Account Management/Customer Services/Business Development</option>
+                                          <option value="Service/Product Management">Service/Product Management</option>
+                                          <option value="Strategy/Planning">Strategy/Planning</option>
+                                          <option value="Web & Digital">Web & Digital</option>
+                                    </select> 
+                            <div class="pop-up__check">    
+                    <input id="privacy-check" type="checkbox" name="consent" required>
+                    <span class="text-span">I consent to GlobalData UK Limited collecting my details provided via this form in accordance with the <a href="https://globaldata.com/privacy-policy">Privacy Policy</a></span>
+                    <span class="consent__error"></span>
+            </div>
+                        <div class="g-recaptcha" id="recaptch_site_key" data-sitekey="6LcqBjQUAAAAAOm0OoVcGhdeuwRaYeG44rfzGqtv"></div>
+            <span class="captcha__error" id="captcha_error"></span>
+                        <button disabled="true" onclick="validateNewsletters(this.form, this.form.email)" class="submit reverse-colors">Sign up</button>
+        </div> 
+    </form>
+</section>
+<section class="pop-up" id="thank-you-pop-up">
+    <div class="thank-you">
+        <button class="thank-you__close icon-close" onclick="hidePopUp()"></button>
+        <div class="thank-you__pic"></div>
+        <div class="thank-you__sub-header">SUBSCRIBED</div>
+        <h1 class="thank-you__header">THANK YOU</h1>
+        <p class="thank-you__text">Thank you for subscribing to Just Auto</p>
+        
+    </div>
+</section>
+<!-- this iFrame is used to submit the form in it and to skip the redirect to pardot -->
+<iframe id="submitFrame" name="submitFrame"></iframe>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {  
+            let preFooter = document.createElement('div');
+            preFooter.className= 'pre-footer-subscribe';
+            preFooter.innerHTML = `
+                <a class="pre-footer-subscribe__all-newsletters" href="https://www.just-auto.com/all-newsletters">
+                    <img src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/eye.svg' alt=''>
+                    <span class="text">View all newsletters</span>
+                    <span class="icon-chevron-right"></span>
+                </a>
+
+                <div class="pre-footer-subscribe__click" onclick="showPopUp('newsletter')">
+                    <figure class="pre-footer-subscribe__figure">
+                        <img src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/img/newsletter-icon.svg' alt=''>
+                        <div class="lines"></div>
+                    </figure>
+                    <span class="text">
+                    Receive our newsletter - data, insights and analysis delivered to you                    <span class="icon-chevron-right"></span></span>
+                </div>
+            `
+            document.querySelector('footer.c-footer').before(preFooter);
+        })
+    </script>
+         <script>
+        jQuery('.c-related-companies-article__single').hover(function() { 
+        var hoverTime = 1000;
+        var elements = [].slice.apply(document.querySelectorAll('.c-related-companies-article__single'));
+        elements.forEach(function (el) {
+        var timeout;
+       el.addEventListener('mouseover', function (){
+        var match = jQuery(this).attr('data-url');
+        var hovertitle = jQuery(this).attr('data-target');
+        var curpostid = jQuery(this).attr('id');  
+        var getpostid = curpostid.replace('company', '');
+                if(!jQuery(this).hasClass("verify")){
+            jQuery(this).addClass("verify");
+            timeout = window.setTimeout(function () {
+                permutive.track('TabClick', {
+                    article: {
+                        url: match,               
+                        title:hovertitle
+                    }
+                });
+            }, hoverTime);
+        }
+      });
+      
+     });
+    
+    });
+    
+    </script>
+        		<!-- Memberships powered by Paid Memberships Pro v2.5.7.
+ -->
+	<!-- The Modal -->
+<div id="pmpro_modal_popup" class="popup-modal">
+  <!-- Modal content -->
+    <div class="popup-modal-content">
+        <div class="form_container">
+            <span class="close">&times;</span>
+            <h4 class="pmpro_status_message"></h4>
+            <form method="POST" name="pmpro_change_email" id="pmpro_change_email" class="form-inline" action="https://www.just-auto.com/wp-admin/admin-ajax.php">
+                <div class="form-input-field">
+                    <label for="email">Email<span style="color:red;">*</span>:</label>
+                    <input type="email" name="new_email" placeholder="Enter Your Email" value="
+                                        " id="new_email" class="form_field">
+                    <span class="pmpro_error_msg"></span>
+                </div>
+                <input type="hidden" name="action" value="pmpro_user_checking">
+                <input type="hidden" name="chargify_url" id="chargify_url" value="
+                                ">
+                <input type="hidden" id="pmpro_user_email" name="pmpro_user_email" value="765532dc59" /><input type="hidden" name="_wp_http_referer" value="/analysis/why-toyota-leads-the-global-automotive-sales-chart/" />                <input type="submit" name="submit" value="submit" />
+            </form>  
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // Get the modal
+    var modal = document.getElementById("pmpro_modal_popup");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("pmpro_sub_btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function(event) {
+    //   if (event.target == modal) {
+    //     modal.style.display = "none";
+    //   }
+    // }
+    span.addEventListener("click", function(evt) {
+        modal.style.display = "none";
+    });
+    btn.addEventListener("click", function(evt) {
+        modal.style.display = "block";
+    });
+    jQuery(document).ready(function($) {
+        
+        $('#pmpro_change_email').on('submit', function(e) {
+            e.preventDefault();
+     
+            var $form = $(this);
+            var pmproEmail = $('#new_email').val();
+            var chargifyUrl = $('#chargify_url').val();
+            $.post($form.attr('action'), $form.serialize(), function(data) {
+                //alert('This is data returned from the server ' + data.error);
+                if(data.error){
+                    $form.find('.pmpro_error_msg').text(data.error_message);
+                }else{
+                    $form.find('.pmpro_error_msg').text('');
+                    if(!data.member_exists){
+                        $('.pmpro_status_message').html(data.status_message);
+                        setTimeout(function () {
+                           //Redirect with JavaScript
+                           window.location.href= chargifyUrl+'?email='+pmproEmail;
+                        }, 5000);
+                    }else{
+                        $('.pmpro_status_message').html(data.status_message);
+                    }
+                }
+            }, 'json');
+        });
+     
+    });
+</script>
+    <!-- Twitter single-event website tag code -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('o88n7',  { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=o88n7&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=o88n7&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" />
+</noscript>
+<!-- End Twitter single-event website tag code -->
+                <script>
+jQuery( document ).ready(function() {
+            function vmsnewTargetpopup(p1,p2,p3){ 
+              jQuery.ajax({
+              type: "POST",
+              url: "https://www.just-auto.com/wp-admin/admin-ajax.php",
+              data: { 
+                    action: 'In_Article_Ad_Slots',
+                    segmentid: p1, 
+                    blogid: p2,
+                    
+                },
+              success: function(data){ 
+                  if(!jQuery.trim(data)){ 
+                  }else{ 
+                    jQuery(p3).html(data);
+                  }
+              }
+              });
+            }
+
+var per_loop =1;
+        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(91087, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(91087, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(91087, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(91087, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(106438, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(106438, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(106438, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(106438, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(21771, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(21771, 21, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(21771, 21, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(21771, 21, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(100619, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(100619, 7, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(100619, 7, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(100619, 7, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(109341, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(109341, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(109341, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(109341, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(108497, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(108497, 24, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(108497, 24, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(108497, 24, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83155, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83155, 9, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83155, 9, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83155, 9, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(89174, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(89174, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(89174, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(89174, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(89830, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(89830, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(89830, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(89830, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(81800, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(81800, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(81800, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(81800, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(77722, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(77722, 22, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(77722, 22, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(77722, 22, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(98560, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(98560, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(98560, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(98560, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(98234, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(98234, 20, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(98234, 20, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(98234, 20, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(88696, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(88696, 29, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(88696, 29, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(88696, 29, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83158, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83158, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83158, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83158, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(47155, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(47155, 26, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(47155, 26, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(47155, 26, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(100598, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(100598, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(100598, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(100598, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(46314, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(46314, 21, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(46314, 21, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(46314, 21, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(98701, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(98701, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(98701, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(98701, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(79223, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(79223, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(79223, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(79223, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(99491, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(99491, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(99491, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(99491, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(62620, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(62620, 19, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(62620, 19, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(62620, 19, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(110618, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(110618, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(110618, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(110618, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(85135, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(85135, 9, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(85135, 9, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(85135, 9, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(100172, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(100172, 7, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(100172, 7, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(100172, 7, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83480, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83480, 22, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83480, 22, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83480, 22, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83486, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83486, 17, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83486, 17, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83486, 17, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(113530, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(113530, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(113530, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(113530, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(93347, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(93347, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(93347, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(93347, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83483, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83483, 9, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83483, 9, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83483, 9, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(69859, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(69859, 26, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(69859, 26, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(69859, 26, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(107303, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(107303, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(107303, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(107303, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(106048, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(106048, 26, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(106048, 26, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(106048, 26, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(71444, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(71444, 22, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(71444, 22, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(71444, 22, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(109952, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(109952, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(109952, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(109952, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(100172, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(100172, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(100172, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(100172, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(94404, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(94404, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(94404, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(94404, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(88696, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(88696, 26, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(88696, 26, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(88696, 26, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(85064, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(85064, 24, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(85064, 24, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(85064, 24, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(73959, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(73959, 19, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(73959, 19, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(73959, 19, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(113170, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(113170, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(113170, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(113170, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(91081, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(91081, 24, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(91081, 24, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(91081, 24, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(103895, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(103895, 7, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(103895, 7, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(103895, 7, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83158, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83158, 17, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83158, 17, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83158, 17, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(106158, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(106158, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(106158, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(106158, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(33196, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(33196, 6, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(33196, 6, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(33196, 6, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(81050, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(81050, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(81050, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(81050, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(118773, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(118773, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(118773, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(118773, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83157, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83157, 25, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83157, 25, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83157, 25, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(77710, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(77710, 26, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(77710, 26, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(77710, 26, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(103896, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(103896, 7, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(103896, 7, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(103896, 7, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(108981, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(108981, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(108981, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(108981, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(95526, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(95526, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(95526, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(95526, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(91564, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(91564, 19, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(91564, 19, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(91564, 19, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(103894, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(103894, 7, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(103894, 7, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(103894, 7, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(103935, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(103935, 28, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(103935, 28, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(103935, 28, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(99958, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(99958, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(99958, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(99958, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(62620, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(62620, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(62620, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(62620, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(44413, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(44413, 24, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(44413, 24, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(44413, 24, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(116882, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(116882, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(116882, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(116882, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(108983, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(108983, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(108983, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(108983, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(90041, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(90041, 24, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(90041, 24, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(90041, 24, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(91592, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(91592, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(91592, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(91592, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(83480, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(83480, 23, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(83480, 23, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(83480, 23, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(55624, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(55624, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(55624, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(55624, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(98234, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(98234, 25, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(98234, 25, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(98234, 25, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(21771, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(21771, 20, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(21771, 20, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(21771, 20, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(99606, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(99606, 30, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(99606, 30, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(99606, 30, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        if(typeof(crbTracker.permutive.workspaceID) != "undefined" && crbTracker.permutive.workspaceID !== null && typeof(crbTracker.permutive.publicAPIKey) != "undefined" && crbTracker.permutive.publicAPIKey !== null) { 
+permutive.segment(113531, function(result){ 
+    if(per_loop<4){ 
+          if (result) { 
+            if(per_loop==1){
+            vmsnewTargetpopup(113531, 8, '#slot-one');
+            }if(per_loop==2){
+                vmsnewTargetpopup(113531, 8, '#slot-two');
+            }if(per_loop==3){ 
+                vmsnewTargetpopup(113531, 8, '#slot-three');
+             } 
+          per_loop++;
+   
+          }
+          }
+                  
+        });
+}
+
+                        });
+</script>
+        
+        <!-- wpsolr - ajax auto completion nonce -->
+        <input type="hidden" id="wpsolr_autocomplete_nonce"
+               value="2f3e4202f3">
+
+		<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-footer-logos//assets/frontend.js?ver=1.0' id='nsmgfooterlogosfrontendJs-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-newsletter-settings/themeAssets/figaroTheme/figaro-child/app.js?ver=1.174' id='nsmgnewsletterFigaroTheme-js'></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?ver=1.0' id='ha-recaptcha-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-tracking//js/permutiveData.js?ver=1.0.5' id='crb-permutive-data-js'></script>
+<script type='text/javascript' id='Sgpolls0-js-extra'>
+/* <![CDATA[ */
+var Sgpolls = {"ajax_url":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php","polls":["https:\/\/survey.alchemer.eu\/s3\/90476314\/All-Sites-Sentiment-Poll-Technology-Poll-08-Q3-22-Factors-Determining-the-Company-to-Set-up-ESG-Performance-Plan","https:\/\/survey.alchemer.eu\/s3\/90347068\/All-Sites-G2-Poll-6-The-Office-of-the-Future","https:\/\/survey.alchemer.eu\/s3\/90437983\/All-Sites-ESG-Poll-50-Q1-2022-Centralized-Governing-Committee-for-ESG-Policies","https:\/\/www.surveygizmo.eu\/s3\/90255079\/All-sites-Poll-3-Impact-on-Recruitment","https:\/\/survey.alchemer.eu\/s3\/90476313\/All-Sites-Sentiment-Poll-Technology-Poll-07-Q3-22-Themes-Likely-to-Impact-the-Most-in-Next-12-Months","https:\/\/survey.alchemer.eu\/s3\/90437985\/All-Sites-ESG-Poll-51-Q1-2022-Anti-corruption-Bribery-Norms-Within-the-Company","https:\/\/survey.alchemer.eu\/s3\/90476295\/All-Sites-Sentiment-Poll-Technology-Poll-01-Q3-22-Technology-disruption","https:\/\/survey.alchemer.eu\/s3\/90347071\/All-Sites-G2-Poll-7-The-Office-of-the-Future","https:\/\/survey.alchemer.eu\/s3\/90476305\/All-Sites-Sentiment-Poll-Technology-Poll-03-Q3-22-Technologies-Hype-or-Substance","https:\/\/survey.alchemer.eu\/s3\/90407383\/All-Sites-Key-Benefits-of-Digital-Transformation-to-a-Company","https:\/\/www.surveygizmo.eu\/s3\/90262021\/All-sites-Tech-Poll-1-The-Office-of-the-Future","https:\/\/survey.alchemer.eu\/s3\/90476306\/All-Sites-Sentiment-Poll-Technology-Poll-04-Q3-22-Change-in-sentiment","https:\/\/survey.alchemer.eu\/s3\/90476312\/All-Sites-Sentiment-Poll-Technology-Poll-06-Q3-22-Sustainability-community","https:\/\/survey.alchemer.eu\/s3\/90407383\/All-Sites-Key-Benefits-of-Digital-Transformation-to-a-Company","https:\/\/survey.alchemer.eu\/s3\/90476308\/All-Sites-Sentiment-Poll-Technology-Poll-05-Q3-22-Sustainability-goals","https:\/\/survey.alchemer.eu\/s3\/90377780\/All-Sites-G3-Poll-8-The-Office-of-the-Future","https:\/\/survey.alchemer.eu\/s3\/90476303\/All-Sites-Sentiment-Poll-Technology-Poll-02-Q3-22-Technology-disruption-timeline","https:\/\/survey.alchemer.eu\/s3\/90347067\/All-Sites-G2-Poll-5-The-Office-of-the-Future"],"options":{"title":false,"source":false,"userid":0,"usersid":"","time":false},"css":".sg-type-checkbox ul.sg-list-vertical li {\r\n    overflow: hidden;\r\n    clear: left;\r\n    display: block !important;\r\n    width: 100% !important;\r\n    padding: 3px 0;\r\n    border-bottom: 1px solid #DBDBDB;\r\n    border-right: 0px solid #DBDBDB;\r\n    margin-top: -3px;\r\n    margin-right: -3px;\r\n    min-height: 30px;\r\n}\r\n\r\n\r\n.sg-replace-icons input[type=checkbox].sg-input-checkbox+label span.sg-icon-target:before, .sg-replace-icons input[type=checkbox].sg-input-checkbox+label:before {\r\n    line-height: 1em;\r\n    content: \"\";\r\n    margin-right: 6px;\r\n    margin-left: 3px;\r\n    border: 1px solid #DBDBDB;\r\n    width: 15px !important;\r\n    height: 15px !important;\r\n    background: #fff;\r\n}\r\n.sg-replace-icons .sg-type-checkbox ul.sg-labels-right input.sg-input-checkbox+label:before, .sg-replace-icons .sg-type-radio ul.sg-labels-right input.sg-input-radio+label:before {\r\n    left: 0.4em;\r\n    width: .1em;\r\n}\r\n.sg-content, .entry-content .sg-content {\r\n  padding: 30px;\r\n  box-shadow: 0 0.3em 1.5em 0 rgba(97,184,239,0) !important;\r\n  margin: 40px 0 50px 0;\r\n  position: relative;\r\n  width: 100%;\r\n  background: #f8f8f8 !important;\r\nborder-top: 2px solid black;\r\n}\r\n\r\n.sg-type-radio ul.sg-list-vertical li{\r\n  \tdisplay: block !important;\r\n    width: 100% !important;\r\n    padding: 3px 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    border-right: 0px solid #DBDBDB;\r\n    margin-top: -3px;\r\n    margin-right: -4px;\r\n    min-height: 30px;\r\n}\r\n\r\n.sg-button-bar{\r\n  margin-top: 10px;\r\n  text-align: center !important;\r\n}\r\n.sg-question-title{  text-align: center !important;}\r\n.sg-survey .sg-button, .entry-content .sg-survey .sg-button {\r\n    background: #fff;\r\n    padding: 10px 0px;\r\n    box-shadow: 0 0.1em 0.2em 0 rgba(0,0,0,0);\r\n    border-radius: 0;\r\n    border: 1px solid black;\r\n    color: black;\r\n    margin-left: 0;\r\n    font-family: \"Atlas Grotesk\",sans-serif !important;\r\n    font-size: 14px;\r\n    font-weight: 600 !important;\r\n    width: 274px;\r\n}\r\n.sg-button:hover {\r\n    background: black;\r\n    color: #fff;\r\n    font-family: \"Atlas Grotesk\",sans-serif !important;\r\n    font-size: 14px;\r\n    font-weight: normal !important;\r\n    font-weight: 600 !important;\r\n}\r\n.sg-question-options {\r\n    padding: 20px 0;\r\n}\r\n.sg-type-checkbox ul.sg-labels-right label, .sg-type-radio ul.sg-labels-right label {\r\n    margin-left: 1.5em;\r\n    font-family: \"Atlas Grotesk\",sans-serif !important;\r\n    font-size: 14px;\r\n    font-weight: normal !important;\r\n    padding-left: 10px;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n}\r\n.sg-replace-icons input[type=radio]:focus-within + label, .sg-replace-icons input[type=checkbox].sg-input-checkbox:focus-within + label, .sg-image-box:focus-within, .rangeslider__handle:focus, .sg-star-box .sg-star-sr-target:focus, .sg-input-menu:focus, span.ui-slider-handle:focus, .sg-cs-cards:focus, .cs-card:focus, .sg-texthighlighter-text span:focus, .DynarchCalendar-bottomBar-today:focus {\r\n    outline: 0;\r\n    color: black !important;\r\n}\r\n.sg-question{\r\n    border-bottom: 0px solid #e9ebed;\r\n}\r\n\r\n.sg-content-hook-1{\r\n    background-image: url('\/\/widgixeu-library.s3.amazonaws.com\/library\/90020059\/GlobalData_logo_blue_header.png');\r\n    background-repeat: no-repeat;\r\n    background-position: right;\r\n    background-size: cover;\r\n    text-align: left;\r\n    position: absolute;\r\n    display: block;\r\n    width: 140px;\r\n    height: 34px;\r\n    top: 30px;\r\n    left: 50%;\r\n    margin-left: -42px;\r\n}\r\n.sg-content-hook-1:before {\r\n    content: 'Poll';\r\n    color: black;\r\n    border-right: 1px solid black;\r\n    position: absolute;\r\n    left: -52px;\r\n    top: 7px;\r\n    width: 40px;\r\n}\r\nlegend.sg-question-title.sg-question-legend strong {\r\n    font-weight: 600 !important;\r\n}\r\n.sg-question-title {\r\n    text-align: center !important;\r\n    font-family: \"Atlas Grotesk\",sans-serif !important;\r\n    line-height: 24px !important;\r\n    font-size: 16px !important;\r\n    font-weight: 600 !important;\r\n    padding: 0 20%;\r\n    color:#12131c !important;\r\n}\r\n.sg-content h2, #infinite-article .entry-content .sg-content h2, .sg-question-title, .entry-content .sg-question-title {\r\n    margin-top: 0;\r\n    padding-bottom: 25px;\r\n    font: 600 18px \"Atlas Grotesk\",sans-serif;\r\n    border-bottom: 1px solid #DDDBDB;\r\n    margin-bottom: -17px;\r\n}\r\n\r\n.sg-question-set {\r\n    padding-top: 40px;\r\n}\r\n\r\n\r\n@media (max-width: 812px){ \r\n\t.sg-type-radio ul.sg-list-vertical li {\r\n\t    display: block;\r\n\t    width: 100%;\r\n\t}\r\n}\r\n@media (max-width: 640px){ \r\n\t.sg-type-radio ul.sg-list-vertical li {\r\n\t    display: block;\r\n\t    width: 100%;\r\n\t}\r\n}\r\n@media (max-width: 375px){\r\n\t.sg-type-radio ul.sg-list-vertical li {\r\n\t    display: block  !important;\r\n\t    width: 100%  !important;\r\n\t    padding: 15px 0;\r\n\t    border-bottom: 1px solid #dbdbdb;\r\n\t    border-right: 0px solid #dbdbdb;\r\n\t}\r\n\t\r\n\t.sg-type-checkbox ul.sg-list-vertical li{\r\n\t\tborder-right: 0px solid #DBDBDB;\r\n\t\twidth: 100% !important;\r\n\t}\r\n\t.sg-question-title {\r\n        padding: 0 5%;\r\n    }\r\n}\r\n@media (max-width: 640px){ \r\n.sg-survey .sg-mobile-optimized .sg-footer .sg-button-bar input{\r\n\tbackground: #fff;\r\n    padding: 10px 0px;\r\n    box-shadow: 0 0.1em 0.2em 0 rgba(0,0,0,0);\r\n    border-radius: 0;\r\n    border: 1px solid black;\r\n    color: black;\r\n    margin-left: 0;\r\n    font-family: \"Atlas Grotesk\",sans-serif !important;\r\n    font-size: 14px;\r\n    font-weight: 600 !important;\r\n    width: 274px !important;\r\n    text-align: center;\r\n    float: none !important;\r\n\tmargin:0px auto !important;\r\n}\r\n.sg-survey .sg-body.sg-int-virtual-page .sg-footer, .sg-survey .sg-mobile-optimized .sg-footer{\r\n\tbackground:none;\r\n\tbox-shadow:none;\r\n\t-webkit-box-shadow:none;\r\n}\r\n.sg-survey .sg-mobile-optimized ul.sg-list li {\r\n    padding: 4px 0;\r\n    display: block !important;\r\n    width: 100% !important;\r\n    padding: 3px 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    border-right: 0px solid #DBDBDB;\r\n    margin-top: -3px;\r\n    margin-right: -4px;\r\n    min-height: 30px;\r\n}\r\n.sg-survey .sg-mobile-optimized ul.sg-list li.sg-first-li {\r\n       margin-top: 8px;\r\n}\r\n.sg-survey body.sg-mobile-optimized .sg-type-table-radio .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-type-table-card-sort-closed .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-type-table-card-sort .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-type-table-matrix .sg-question-options .sg-mobilize-label label, .sg-survey body.sg-mobile-optimized .sg-type-table-checkbox .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-question.sg-type-radio .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-question.sg-type-checkbox .sg-question-options label, .sg-survey body.sg-mobile-optimized .sg-question.sg-type-rank-table .sg-question-options th label, .sg-survey body.sg-mobile-optimized .sg-question.sg-type-rank-table .sg-question-options td label, .sg-survey body.sg-mobile-optimized .sg-question .sg-question-options input[type=radio]:checked + label, .sg-survey body.sg-mobile-optimized .sg-question .sg-question-options input[type=radio]:checked + .sg-mobilize-label label, .sg-survey body.sg-mobile-optimized .sg-question .sg-question-options input[type=checkbox]:checked + .sg-mobilize-label label, .sg-survey body.sg-mobile-optimized .sg-question .sg-question-options input[type=checkbox]:checked+label{\r\n    background: transparent;\r\n    border: none;\r\n}\r\n.sg-survey .sg-mobile-optimized .sg-input.sg-input-menu {\r\n    margin-top: 10px !important;\r\n}\r\n.sg-page-title {\r\n  display: block !important;\r\n}","jsOptions":{"jspollsSeparate":"1","jspollsOrder":null,"jspollsCalc":"1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/sgpolls/assets/iframeResizer.min.js?ver=2.0.c..490508418' id='Sgpolls0-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/sgpolls/assets/parent.js?ver=2.0.c..490508418' id='Sgpolls1-js'></script>
+<script type='text/javascript' id='nsmgscampaigns-js-extra'>
+/* <![CDATA[ */
+var nsmgscampaigns = {"ajaxurl":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php","nonce":"e734c9831a"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/nsmg-campaigns/assets/public/js/main.js?ver=2.7' defer id='nsmgscampaigns-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/js/devbridge/jquery.autocomplete.js?ver=22.9' id='solr_auto_js1-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/bower_components/jsurl/url.min.js?ver=22.9' id='urljs-js'></script>
+<script type='text/javascript' id='autocomplete-js-extra'>
+/* <![CDATA[ */
+var wp_localize_script_autocomplete = {"data":{"ajax_url":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php","lang":"","is_show_url_parameters":true,"is_ajax":true,"SEARCH_PARAMETER_S":"s","SEARCH_PARAMETER_SEARCH":"search","SEARCH_PARAMETER_Q":"wpsolr_q","SEARCH_PARAMETER_FQ":"wpsolr_fq","SEARCH_PARAMETER_SORT":"wpsolr_sort","SEARCH_PARAMETER_PAGE":"wpsolr_page","SORT_CODE_BY_RELEVANCY_DESC":"sort_by_relevancy_desc","css_ajax_container_page_title":".page-title","css_ajax_container_page_sort":".woocommerce-ordering select,.select_field","css_ajax_container_results":".products,.results-by-facets","css_ajax_container_overlay":".products,.results-by-facets","css_ajax_container_pagination":"nav.woocommerce-pagination,.paginate_div","css_ajax_container_pagination_page":"a.page-numbers,a.paginate","css_ajax_container_results_count":".woocommerce-result-count,.res_info","ajax_delay_ms":"","redirect_search_home":"","suggestions_icon":"https:\/\/www.just-auto.com\/wp-content\/plugins\/wpsolr-pro\/wpsolr\/core\/images\/wpsolr-ajax-loader.gif","wpsolr_autocomplete_is_active":true,"wpsolr_autocomplete_selector":[],"wpsolr_autocomplete_action":"wdm_return_solr_rows","wpsolr_autocomplete_nonce_selector":"#wpsolr_autocomplete_nonce","wpsolr_is_search_admin":false}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/js/autocomplete_solr.js?ver=22.9' id='autocomplete-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/js/loadingoverlay/loadingoverlay.min.js?ver=22.9' id='loadingoverlay-js'></script>
+<script type='text/javascript' id='infinitescroll-js-extra'>
+/* <![CDATA[ */
+var wp_localize_script_infinitescroll = {"ajax_url":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php","loadimage":"https:\/\/www.just-auto.com\/wp-content\/plugins\/wpsolr-pro\/wpsolr\/core\/images\/infinitescroll.gif","loadingtext":"Loading ...","SEARCH_PARAMETER_Q":"wpsolr_q"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/core/js/jquery.infinitescroll.js?ver=22.9' id='infinitescroll-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/vendor/swiper/swiper.js?ver=6.8.3' id='swiper-slider-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/themes/figaro-child/assets/js/slider.js?ver=0.0.1' id='figaro-child-slider-js'></script>
+<script type='text/javascript' id='figaro-scripts-js-extra'>
+/* <![CDATA[ */
+var figaro = {"is_rtl":"","ajaxurl":"https:\/\/www.just-auto.com\/wp-admin\/admin-ajax.php","post_id":"112617","lazyload":"","ajax_loader":"<div class=\"loader-overlay\"><div class=\"spinner-circle\"><\/div><\/div>","type_to_search":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/uploads/sites/30/figaro/assets/js/figaro-cb60681b1689ada705dfa849d9ac9402.js?ver=5.8.3' id='figaro-scripts-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/themes/figaro/assets/dist/js/script.js?ver=1.124' id='company-script-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/pro/extensions/theme/template/facet-range/wpsolr-facet-range.js?ver=22.9' id='wpsolr-facet-range-js-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/wpsolr-pro/wpsolr/pro/extensions/theme/template/facet-color-picker/wpsolr-facet-color-picker.js?ver=22.9' id='wpsolr-facet-color-picker-js-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-includes/js/wp-embed.min.js?ver=5.8.3' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/gd-hic-theme/js/accordion.js?ver=5.7.1' id='accordion-js-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/storefronts/assets/js/app.js?ver=5.7.6' id='main-js-js'></script>
+<script type='text/javascript' src='https://www.just-auto.com/wp-content/plugins/vms-automation/vms-script.js?ver=5.7.8' id='gdm-vms-script-js'></script>
+<script data-cfasync="false" type='text/javascript' data-parsely-site="just-auto.com" src='https://cdn.parsely.com/keys/just-auto.com/p.js?ver=2.6.1' id="parsely-cfg"></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-7b82eb47d05ddffd6c6","applicationID":"1250398555","transactionName":"MVAAZkoFWEBSURIKWwgaI1FMDVldHEEPDVMKUA==","queueTime":0,"applicationTime":3228,"atts":"HRcDEAIfS04=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

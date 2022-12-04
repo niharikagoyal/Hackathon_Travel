@@ -1,0 +1,13 @@
+<html>
+<head>
+<title> mouse effect </title>
+</head>
+<body>
+<img src="goa.jpg" width=250 height= 250 border=2 name=p1> <br><br>
+<img src="andaman.jpg" width=100 height= 100 border=1 name=p2> <br><br>
+<img src="darjeeling.jpg" width=100 height= 100 border=1 name=p3> <br><br>
+<img src="kerala.jpg" width=100 height= 100 border=1 name=p4> <br><br>
+<img src="karnataka.jpg" width=100 height= 100 border=1 name=p5> <br><br>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title> button click effect </title>
+</head>
+<body>
+<form name=f1>
+<label> Enter any color </label> 
+<input type="text" name=t1 ><br><br>
+<input type="button" value="submit" onClick="a()">
+</form>
+<script language="javascript">
+function a()
+{
+var c;
+c=document.f1.t1.value;
+document.bgColor=c;
+}
+</script>
+</body>
+</html>

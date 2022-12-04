@@ -1,0 +1,55 @@
+*{
+	margin:0;
+	padding:0;
+box-sizing: border-box;
+font-family:arial;
+}
+.header{
+	background-image:url(12.webp);
+	background-repeat:no repeat;
+	position:relative;
+	background-size:cover;
+	background-position:center;
+}
+
+ nav{
+	 width:100%; height:15vh;
+	 background:black;
+	 color:white; display:flex; justify-content:space-between;
+	 text-align:center;
+	 max-width: 1350px;
+	margin:0 auto;
+	padding:1%;
+	
+ }
+nav.logo{
+width:25%;
+}
+
+nav .menu{
+	width:50%; display:flex; justify-content:space-between;
+}
+nav .menu a{
+	text-decoration:none;
+	color:white;
+	font-weight: bold;
+}
+nav .menu a:hover{
+	color:cadetblue;
+}
+.first
+{
+	display:flex;
+	justify-content:space-around;
+	
+}
+.box{
+	border:solid;
+	width:250;
+	height:155;
+	border-color:green;
+	border-radius:30px;
+	text-align:center;
+	background-color:cornsilk;
+	font-size:25px;
+}

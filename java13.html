@@ -1,0 +1,48 @@
+<html>
+<head>
+<title> CALCULATOR </title>
+</head>
+<body>
+<form name=f1>
+<label> enter first number </label> <input type= number name=t1> <br> <br>
+<label> enter secon number </label> <input type= number name=t2> <br> <br>
+<label> select your choice </label> <select name=s1>
+<option> + </option>
+<option> - </option>
+<option> * </option>
+<option> / </option>
+<option> % </option>
+</select>
+<input type="button" name=b1 value="submit" onClick=a()><br> <br>
+<label> Result </label> <input type=number name=t3 > <br> <br>
+</form>
+<script language="javascript">
+var fn,sn,res,ch;
+function a()
+{
+ch=document.f1.s1.value;
+fn=document.f1.t1.value;
+sn=document.f1.t2.value;
+switch(ch)
+{
+case '+':
+res= eval(fn)+eval(sn);
+break;
+case '-':
+res= fn-sn;
+break;
+case '*':
+res= fn*sn;
+break;
+case '/':
+res= fn/sn;
+break;
+case '%':
+res= fn%sn;
+break;
+}
+document.f1.t3.value=res;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title> FORM </title>
+</head>
+<body bgcolor="pink">
+<pre>
+<form name=f1>
+<label> NAME </label> <input type= text name=t1> <br> <br>
+<label> AGE </label> <input type= number name=t2> <br> <br>
+<label> MOBILE NUMBER </label> <input type= number name=t3> <br> <br>
+<label> PASSWORD </label> <input type= password name=p1> <br> <br>
+<label> RETYPE PASSWORD </label> <input type= password name=p2> <br> <br>
+<input type="button" name=b1 value="submit" onClick=a()><br> <br>
+<input type="reset" name=b2 value="clear"><br> <br>
+</form>
+</pre>
+<script language="javascript">
+function a()
+{
+if (document.f1.t1.value=="")
+{
+alert("Name is required");
+}
+else if(document.f1.t2.value=="") 
+{
+alert("age is required")
+}
+else if(document.f1.t2.value<18 || document.f1.t2.value>30 )
+{
+alert("Age is restricted ");
+}
+
+
+}
+
+
+</script>
+</body>
+</html>
